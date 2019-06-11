@@ -102,6 +102,7 @@ function playVideoAction(topic, payload)
         kodiOn()
     end
 
+    matchedVideo = nothing
     # 1st: check tv shows in DB
     #
     tvShows = kodiGetTVshows()
@@ -109,19 +110,26 @@ function playVideoAction(topic, payload)
 
     if tvShow != nothing
         println(">>> Database: $tvShow")
+
+        episodes = kodiGetEpisodes(tvShow)
+        println("episodes")
+        println(episodes)
+        matchedVideo = unseenEpisode(episodes)
     else
         println(">>> Database: nothing")
     end
 
+
     # 2nd: check OTR-recordings:
     #
-    if tvShow == nothing
+    if matchedVideo == nothing
         recs = kodiGetOTRrecordings()
-        tvShow = extractOTR(videoName, recs)
+        episodes = extractOTR(videoName, recs)
+        matchedVideo = unseenEpisode(episodes)
     end
 
-    if tvShow != nothing
-        println(">>> OTR: $tvShow")
+    if matchedVideo != nothing
+        println(">>> OTR: $matchedVideo")
     else
         println(">>> OTR: nothing")
     end

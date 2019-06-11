@@ -8,10 +8,10 @@ TEMPLATES=$3
 CMD=$4
 
 if [[ $# -gt 4 ]] ; then
-  PARAM2=$5
+  PARAM=$5
 fi
 if [[ $# -gt 5 ]] ; then
-  PARAM="$6"
+  PARAM2="$6"
 fi
 
 #cd /tmp

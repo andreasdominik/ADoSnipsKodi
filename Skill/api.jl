@@ -106,6 +106,25 @@ function kodiGetOTRrecordings()
     return otrs
 end
 
+
+"""
+    kodiGetEpisodes(tvShow)
+
+Return a Dict() with episodes of a tv show from KODI.
+* keys are Symbols
+* if error, an empty Dict() is returned
+"""
+function kodiGetEpisodes(tvShow)
+
+    episodes = Dict()
+    if kodiCmd("getEpisodes", tvShow[:tvshowid])
+        episodes = parseKodiResult(:episodes)
+    end
+    return episodes
+end
+
+
+
 #
 # low-level:
 #
@@ -127,11 +146,11 @@ end
 
 
 """
-function getKodiOTRFiles()
+    getKodiOTRFiles()
 
-    Returns a Dict() with files
-    and fields: :file (=path), :label (=filename)
-    * if error, an empty Dict() is returned
+Return a Dict() with files
+and fields: :file (=path), :label (=filename)
+* if error, an empty Dict() is returned
 """
 function getKodiOTRFiles()
 
@@ -149,22 +168,22 @@ end
 #
 #
 """
-extractTVshow(text, tvShows; reverse = true)
+    extractTVshow(text, tvShows; reverse = true)
 
-    checks, if one of the TV show titles in tvShows
-    is includes in text.
-    And returns the matched TV show (as Dict)
+Check, if one of the TV show titles in tvShows
+is includes in text.
+And returns the matched TV show (as Dict)
 
-    # Arguments:
-    * text : voice recording
-    * tvShows : List of Dicts from KODI
-    * reverse : if true (default), do a reverse serach, if no match
-                normal: the title is searched in text
-                (title must be a part of the text).
-                The longest matched title is returned.
-                reverse: the text is searched in the titles
-                (text must be a part of the title)
-                the match is returned, if exactly one title matched.
+## Arguments:
+* text : voice recording
+* tvShows : List of Dicts from KODI
+* reverse : if true (default), do a reverse serach, if no match
+            normal: the title is searched in text
+            (title must be a part of the text).
+            The longest matched title is returned.
+            reverse: the text is searched in the titles
+            (text must be a part of the title)
+            the match is returned, if exactly one title matched.
 """
 function extractTVshow(text, tvShows; reverse = true)
 
@@ -204,6 +223,35 @@ function extractTVshow(text, tvShows; reverse = true)
     return tvShow
 end
 
+
+"""
+    unseenEpisode(episodes)
+
+Return the lowest episode with playcount 0
+"""
+function unseenEpisode(episodes)
+
+    episode = nothing
+    sFirst = 10000
+    eFirst = 10000
+    for e in episodes
+        if e[:playcount] == 0
+            if e[:season] < sFirst
+                sFirst, eFirst = e[:season], e[:episode]
+                episode = e
+            elseif e[:season] == sFirst && e[:episode] < eFirst
+                sFirst, eFirst = e[:season], e[:episode]
+                episode = e
+            end
+        end
+    end
+    return episode
+end
+
+
+
+
+
 """
 extractOTR(text, otrs)
 
@@ -229,6 +277,7 @@ function extractOTR(text, otrs)
             upperOccursin(text, oneOTR[:title]) && push!(matchedOTRs, oneOTR)
         end
     end
+
     return matchedOTRs
 end
 
