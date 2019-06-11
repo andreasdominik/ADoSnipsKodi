@@ -25,6 +25,8 @@ const SLOT_ROOM = "room"
 const SLOT_DEVICE = "device"
 const SLOT_ON_OFF = "on_or_off"
 
+const SLOT_MOVIENAME = "movieName"
+
 # name of entry in config.ini:
 #
 const INI_IP = "ip"
@@ -45,6 +47,7 @@ const INI_GPIO="gpio"
 #
 if LANG == "de"
     Snips.registerIntentAction("ADoSnipsOnOffDE", switchOnOffActions)
+    Snips.registerIntentAction("ADoSnipsPlayVideoDE", playVideoAction)
 else LANG == "en"
     Snips.registerIntentAction("ADoSnipsOnOffEN", switchOnOffActions)
 end

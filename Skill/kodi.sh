@@ -14,7 +14,7 @@ if [[ $# -gt 5 ]] ; then
   PARAM="$6"
 fi
 
-cd /tmp
+#cd /tmp
 JSON="kodidata.json"
 
 case "$CMD" in
@@ -89,7 +89,7 @@ case "$CMD" in
     ;;
 esac
 
-curl ${URL}:${PORT}/jsonrpc --data @${JSON} \
+curl ${IP}:${PORT}/jsonrpc --data @${JSON} \
      --header 'content-type: application/json;' \
      -o kodiresult.json
 

@@ -1,0 +1,581 @@
+{
+	"id": "libTvShows",
+	"jsonrpc": "2.0",
+	"result": {
+		"limits": {
+			"end": 25,
+			"start": 0,
+			"total": 25
+		},
+		"tvshows": [
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f273181-g11.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f273181-4.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f273181-17.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f273181-4.jpg/",
+				"file": "smb://NAS/TVseries/Better.Call.Saul/",
+				"genre": [
+					"Crime",
+					"Drama"
+				],
+				"label": "Better Call Saul",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Jimmy ist ein unbedeutender Anwalt auf der Suche nach seiner Bestimmung, der kämpft um über die Runden zu kommen. An seiner Seite - und manchmal gegen ihn - arbeitet Fixer Mike Ehrmantraut. Die Serie folgt Jimmys Verwandlung in Saul Goodman, dem Mann der die 'Straftat' in 'Strafverteidiger' packt. Sauls Bruder Chuck ist ein brillanter Anwalt, der aber durch ein \"seltenes Leiden\" in seiner Arbeit eingeschränkt ist.",
+				"rating": 8.800000190734864,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f273181-17.jpg/",
+				"title": "Better Call Saul",
+				"tvshowid": 20,
+				"year": 2015
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f77388-g2.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f77388-12.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f77388-4.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f77388-12.jpg/",
+				"file": "smb://NAS/TVseries/Bezaubernde.Jeannie/",
+				"genre": [
+					"Comedy",
+					"Fantasy"
+				],
+				"label": "Bezaubernde Jeannie",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Ein 2000 Jahre alter Flaschengeist und ein Astronaut der NASA - das kann doch nicht zusammenpassen! Und ob: Wenn der Flaschengeist eine hübsche Blondine namens Jeannie ist, die sich in ihren \"Meister\" Captain Tony Nelson verliebt und ihm jeden Wunsch von den Augen abliest. Mit ihrem bezaubernden Blinzeln verdreht die charmante Jeannie alias Barbara Eden nicht nur Tony Nelson und seinem Freund und NASA-Kollegen Roger Healey den Kopf, sondern auch den Zuschauern ...",
+				"rating": 7.800000190734863,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f77388-4.jpg/",
+				"title": "Bezaubernde Jeannie",
+				"tvshowid": 11,
+				"year": 1965
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f81189-g21.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f81189-21.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f81189-10.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f81189-21.jpg/",
+				"file": "smb://NAS/TVseries/Breaking.Bad/",
+				"genre": [
+					"Crime",
+					"Drama",
+					"Suspense",
+					"Thriller"
+				],
+				"label": "Breaking Bad",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Walter White ist ein schlafwandelnd durchs Leben gehender Highschool Chemielehrer. An seinem 50sten Geburtstag wird bei ihm Krebs im Endstadium diagnostiziert. Um die finanzielle Zukunft für seine schwangere Frau und seinen behinderten Sohn zu sichern, und weil er an der Schwelle des Todes nichts mehr zu verlieren hat, beschließt er seine Fähigkeiten als Chemiker gewinnbringend einzusetzen. Gemeinsam mit seinem ehemaligen Schüler Jesse Pinkman beginnt er Methamphetamin zu kochen.",
+				"rating": 9.399999618530274,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f81189-10.jpg/",
+				"title": "Breaking Bad",
+				"tvshowid": 6,
+				"year": 2008
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f289561-g2.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f289561-4.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f289561-2.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f289561-4.jpg/",
+				"file": "smb://NAS/TVseries/Der_Tatortreiniger/",
+				"genre": [
+					"Comedy"
+				],
+				"label": "Der Tatortreiniger",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Heiko „Schotty“ Schotte ist Gebäudereiniger und wird vorzugsweise immer dann gerufen, wenn nach einem Gewaltverbrechen der Tatort vom Blut der Opfer befreit werden muss. Schotty ist gründlich, gewissenhaft und um keinen Smalltalk verlegen - denn den führt er regelmäßig mit Hinterbliebenen und Bekannten, die er am Tatort trifft. Die kammerspielartige Szenerie schenkt den Akteuren die volle Aufmerksamkeit der Zuschauer und bietet den schwarzhumorigen Dialogen eine ideale Bühne.",
+				"rating": 8.899999618530274,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f289561-2.jpg/",
+				"title": "Der Tatortreiniger",
+				"tvshowid": 9,
+				"year": 2011
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f268821-g2.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f268821-1.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f268821-2.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f268821-1.jpg/",
+				"file": "smb://NAS/TVseries/Die_Kirche_bleibt_im_Dorf/",
+				"genre": [
+					"Comedy"
+				],
+				"label": "Die Kirche bleibt im Dorf",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Mit viel schwäbischem Dialekt und jeder Menge schwarzem Humor wurde die Komödie \"Die Kirche bleibt im Dorf\" zu einem großen Kinoerfolg. Ab 15. April liefern sich die Häberles und Rossbauers im SWR Fernsehen weitere Wortgefechte. Immer mittendrin: der norddeutsche Pfarrer Kai Uwe Köster (Rainer Piwek).",
+				"rating": 9.0,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f268821-2.jpg/",
+				"title": "Die Kirche bleibt im Dorf",
+				"tvshowid": 15,
+				"year": 2013
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f78804-g44.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f78804-54.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f78804-2.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f78804-54.jpg/",
+				"file": "smb://NAS/TVseries/Doctor.Who/",
+				"genre": [
+					"Adventure",
+					"Drama",
+					"Science-Fiction"
+				],
+				"label": "Doctor Who (2005)",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Die Serie handelt von einem mysteriösen Außerirdischen namens „Der Doktor“, der mit seinem Raumschiff, der TARDIS (Time and Relative Dimension in Space), welches von außen aussieht wie eine englische Notruf-Telefonzelle der 60er Jahre, durch Raum und Zeit fliegt. Der Doktor ist ein Time Lord vom Planeten Gallifrey - und bereits über 900 Jahre alt. Dass man ihm das nicht ansieht, liegt vor allem daran, dass ein Time Lord, wenn er stirbt, in der Lage ist, sich zu regenerieren, wobei er auch eine andere Gestalt annimmt.",
+				"rating": 9.399999618530274,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f78804-2.jpg/",
+				"title": "Doctor Who (2005)",
+				"tvshowid": 24,
+				"year": 2005
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f205281-g10.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f205281-25.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f205281-3.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f205281-25.jpg/",
+				"file": "smb://NAS/TVseries/Falling.Skies/",
+				"genre": [
+					"Action",
+					"Adventure",
+					"Science-Fiction",
+					"Thriller"
+				],
+				"label": "Falling Skies",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Bei einer Invasion von Außerirdischen wird die menschliche Zivilisation weitgehend ausgelöscht. Der College-Professor Tom Mason, der bei dem Überfall seine Frau verloren hat, führt eine Gruppe von Widerständlern an, zu der ebenfalls die Kinderärztin Anne Glass gehört. Auch sie hat bei dem Angriff ihren Ehemann, sowie ihre Tochter verloren. Gemeinsam stellen sich Tom, Anne und andere Mitglieder des Widerstands dem schwierigen Überlebenskampf.",
+				"rating": 7.800000190734863,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f205281-3.jpg/",
+				"title": "Falling Skies",
+				"tvshowid": 5,
+				"year": 2011
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f76171-g.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f76171-8.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f76171-3.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f76171-8.jpg/",
+				"file": "smb://NAS/TVseries/Familie.Feuerstein/",
+				"genre": [
+					"Animation",
+					"Children",
+					"Comedy"
+				],
+				"label": "Familie Feuerstein",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Fred, Barney, Wilma und Betty leben zwar in der Steinzeit – doch ihr Alltag unterscheidet sich kaum von dem ihrer Nachfahren im 20. Jahrhundert. Auch die Feuersteins schlagen sich mit Pizza, Fernsehern, frisch gewaschenen Autos und Basketball herum – in der paläolithischen Ausgabe!",
+				"rating": 8.600000381469727,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f76171-3.jpg/",
+				"title": "Familie Feuerstein",
+				"tvshowid": 2,
+				"year": 1960
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f70522-g19.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f70522-46.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f70522-14.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f70522-46.jpg/",
+				"file": "smb://NAS/TVseries/Farscape/",
+				"genre": [
+					"Science-Fiction"
+				],
+				"label": "Farscape",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Commander Crichton wird von einem Magnetwirbelsturm durch ein \"Wurmloch\" katapultiert. Als er wieder zu sich kommt, findet er sich viele Galaxien entfernt wieder - mitten im Reich der unerbittlichen Peacekeeper, die alles andere als friedfertig sind. Auf seiner Flucht verschlägt es John auf die Moya, ein seltsam lebendiges Raumschiff, das die unterschiedlichsten Spezies beherbergt...",
+				"rating": 9.0,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f70522-14.jpg/",
+				"title": "Farscape",
+				"tvshowid": 10,
+				"year": 1999
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f80285-g3.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f80285-1.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f80285-2.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f80285-1.jpg/",
+				"file": "smb://NAS/TVseries/Jesse.Stone/",
+				"genre": [
+					"Drama",
+					"Mini-Series"
+				],
+				"label": "Jesse Stone",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Ein Großstadt-Cop als Landei wider Willen: Seine gescheiterte Ehe, Alkoholprobleme und der Rauswurf beim Los Angeles Police Department liegen hinter dem desillusionierten Cop Jesse Stone, der als neuer Polizeichef der Kleinstadt Paradise an vielen Fronten kämpft.",
+				"rating": 8.600000381469727,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f80285-2.jpg/",
+				"title": "Jesse Stone",
+				"tvshowid": 21,
+				"year": 2005
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f267608-g.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f267608-1.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f267608-2.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f267608-1.jpg/",
+				"file": "smb://NAS/TVseries/Lerchenberg/",
+				"genre": [
+					"Comedy"
+				],
+				"label": "Lerchenberg",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Der gealterte Schauspieler Sascha Hehn strebt sein Comeback im ZDF an. Die junge und idealistische Redakteurin Billie, die mit dem ehemaligen Fernsehstar zunächst überhaupt nichts anfangen kann, erhält den Auftrag, ihm dabei zu helfen. Die Serie erzählt von den Versuchen des ungleichen Paares, das geeignete Format für Saschas Comeback zu finden. Sie wirft einen selbstironischen Blick auf den öffentlich-rechtlichen Sender sowie die TV-Branche im Allgemeinen. Reale Personen, reale Drehorte und reale Bezüge werden mit fiktiven und satirisch zugespitzten Elementen gemischt.",
+				"rating": 0.0,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f267608-2.jpg/",
+				"title": "Lerchenberg",
+				"tvshowid": 3,
+				"year": 2013
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f70994-g3.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f70994-6.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f70994-1.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f70994-6.jpg/",
+				"file": "smb://NAS/TVseries/MASH-4077/",
+				"genre": [
+					"Comedy"
+				],
+				"label": "M.A.S.H",
+				"originaltitle": "",
+				"playcount": 0,
+				"plot": "Wir befinden uns inmitten des Koreakriegs - Tote und Verletzte sind an der Tagesordnung, und die Sinnlosigkeit des Krieges zermürbt das Durchhaltevermögen aller Beteiligten. Doch im MASH 4077, einem Camp, in dem Chirurgen, Pfleger und Schwestern um das Leben der Verwundeten kämpfen, trotzt man allen Widrigkeiten (wozu unter anderem auch die Mahlzeiten gehören) mit Herz, Humor und einer beachtlichen Portion Sarkasmus. Diese Serie mit ihren starken Charakteren - allen voran Alan Alda als Hawkeye Pierce - in ein Genre zu stecken, ist unmöglich. Im ersten Moment eine Komödie, im nächsten Gesellschaftskritik oder sogar Drama, fesselt sie uns mit ihrer Vielschichtigkeit immer wieder aufs neue.",
+				"rating": 9.300000190734864,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f70994-1.jpg/",
+				"title": "M.A.S.H",
+				"tvshowid": 26,
+				"year": 1972
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f77847-g.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f77847-8.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f77847-5.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f77847-8.jpg/",
+				"file": "smb://NAS/TVseries/MacGyver/",
+				"genre": [
+					"Action",
+					"Adventure"
+				],
+				"label": "MacGyver",
+				"originaltitle": "",
+				"playcount": 0,
+				"plot": "Der technisch versierte MacGyver arbeitet im Auftrag der Phoenix Foundation, die wiederum für die Regierung und andere Auftraggeber friedensstiftend wirkt. MacGyver weigert sich seit einem Unfall in seiner Jugend, eine Waffe bei sich zu tragen, und baut stattdessen notfalls als Waffen einsetzbare Dinge aus was immer gerade rumliegt. Dank seiner Physik- und Chemiekenntnisse gelingt es ihm, sich auch aus den brenzligsten Situationen zu befreien.",
+				"rating": 8.600000381469727,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f77847-5.jpg/",
+				"title": "MacGyver",
+				"tvshowid": 13,
+				"year": 1985
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f83327-g2.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f83327-3.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f83327-3.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f83327-3.jpg/",
+				"file": "smb://NAS/TVseries/Monaco Franze - Der ewige Stenz/",
+				"genre": [
+					"Comedy",
+					"Crime",
+					"Drama"
+				],
+				"label": "Monaco Franze – Der ewige Stenz",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Franz Münchinger ist \"Monaco Franze\", ein Kind aus dem kleinbürgerlichen Münchner Westend, inzwischen erfolgreicher Kriminalkommissar und verheiratet mit Annette von Soettingen, einer Dame von Welt. Beide sind zwei grundverschiedene Menschen - und dennoch: Sie brauchen und lieben sich. Mit Lokalkolorit liebevoll in Szene gesetzt, erzählen zehn Episoden von den Großstadtabenteuern eines ganz normalen Mannes und einer trotz Kapriolen glücklichen Ehe. Monaco ermittelt allerdings zum Leidwesen seiner Frau und seines Kollegen Manni Kopfeck gerne auch nach Feierabend, denn so sehr er den Hafen der Ehe schätzt, lockt stets die holde Weiblichkeit, welche dem überzeugten Wiederholungstäter die ein oder andere heikle Situation beschehrt. So ist auch hier das Glück nur von begrenzter Dauer und so erfährt der Monaco nach endgültiger Trennung seiner Frau den freien Fall vom Lebemann zum mittellosen Alkoholiker, um schließlich in den Trümmern seiner Existenz zu seinem \"Spatzl\" zurückzufinden.",
+				"rating": 9.0,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f83327-3.jpg/",
+				"title": "Monaco Franze – Der ewige Stenz",
+				"tvshowid": 4,
+				"year": 1983
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f77526-g11.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f77526-7.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f77526-3.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f77526-7.jpg/",
+				"file": "smb://NAS/TVseries/Raumschiff.Enterprise/",
+				"genre": [
+					"Action",
+					"Adventure",
+					"Drama",
+					"Science-Fiction"
+				],
+				"label": "Raumschiff Enterprise",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Der Weltraum - unendliche Weiten. Dies sind die Abenteuer des Raumschiffs Enterprise, das mit seiner 400 Mann starken Besatzung fünf Jahre lang unterwegs ist, um neue Welten zu entdecken, neue Lebensformen und neue Zivilisationen. Viele Lichtjahre von der Erde entfernt dringt die Enterprise dabei in Galaxien vor, die nie ein Mensch zuvor gesehen hat...",
+				"rating": 8.600000381469727,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f77526-3.jpg/",
+				"title": "Raumschiff Enterprise",
+				"tvshowid": 17,
+				"year": 1966
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f71470-g11.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f71470-28.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f71470-2.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f71470-28.jpg/",
+				"file": "smb://NAS/TVseries/Raumschiff.Enterprise.Das.naechste.Jahrhundert/",
+				"genre": [
+					"Action",
+					"Adventure",
+					"Drama",
+					"Science-Fiction"
+				],
+				"label": "Raumschiff Enterprise - Das nächste Jahrhundert",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Zwei Generationen später, nachdem Capt. Kirk, Spock, Dr. McCoy mit der Enterprise auf der Suche nach unbekannten Welten das Universum durchquert hatten, machte sich eine neue Mannschaft unter der Führung von Capt. Picard auf, in Galaxien vorzudringen, die nie ein Mensch zuvor gesehen hat. Man schreibt inzwischen Sternzeit 41242.6. Übermächtige Gegner und fremde Wesen verlangen immer wieder Capt. Picards Verhandlungsgeschick und die Tapferkeit der Besatzung der Enterprise ...",
+				"rating": 9.199999809265137,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f71470-2.jpg/",
+				"title": "Raumschiff Enterprise - Das nächste Jahrhundert",
+				"tvshowid": 25,
+				"year": 1987
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f254367-g3.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f254367-5.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f254367-8.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f254367-5.jpg/",
+				"file": "smb://NAS/TVseries/Echte Menschen/",
+				"genre": [
+					"Drama",
+					"Science-Fiction"
+				],
+				"label": "Real Humans - Echte Menschen",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Schweden in naher Zukunft: Immer mehr Menschen nutzen „Hubots“ - menschliche Roboter, deren komplexe Programmierung inzwischen einen Nebeneffekt hat: sie haben begonnen Gefühle zu entwickeln.\n\n‚Leo‘, ‚Mimi‘ und ‚Niska‘ gehören zu einer Gruppe entflohener Hubots, die für ihre Freiheit kämpfen und deshalb von der Polizei gejagt werden. Eines Tages wird ‚Mimi‘ von Kleinkriminellen eingefangen und auf dem Schwarzmarkt verkauft. Aber ‚Leo‘ gibt sie nicht auf und begibt sich auf die Suche.\n\nHans Engman kauft bei einem Einzelhändler seinem Schwiegervater Lennart einen neuen Hubot als Ersatz für einen kaputten. Der Verkäufer kann ihn von einem teuren Modell überzeugen, indem er Hans ein günstigeres Modell als Dreingabe schenkt. Seine Frau Inger ist nicht sonderlich begeistert. Zur gleichen Zeit ist Lennart mit dem neuen Hubot ‚Vera‘ unzufrieden und schafft es das defekte Modell ‚Odi‘ wieder in Gang zu setzen.\n\nRoger arbeitet in einem Laden, in dem Hubots immer mehr Arbeit übernehmen. Er verachtet sie - ganz besonders als seine Frau mit ihrem Hubot ‚Rick‘ durchbrennt und ihren Sohn Kevin mitnimmt.",
+				"rating": 8.699999809265137,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f254367-8.jpg/",
+				"title": "Real Humans - Echte Menschen",
+				"tvshowid": 7,
+				"year": 2012
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f300333-g.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f300333-2.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f300333-1.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f300333-2.jpg/",
+				"file": "smb://NAS/TVseries/Sedwitz/",
+				"genre": [
+					"Drama",
+					"Mini-Series",
+					"Thriller"
+				],
+				"label": "Sedwitz",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Der DDR-Grenzoffizier Ralle Pietzsch (Thorsten Merten) erhält 1988 von einem sterbenden Stasi-Führer den Schlüssel zu einem hoch geheimen Tunnel unter der Grenze. Doch anstatt diesen wie versprochen abzugeben, möchte er seinem Sohn den sehnlichsten Geburtstagswunsch erfüllen und ihm einen Zauberwürfel schenken. Den gibt es jedoch nur im westlichen Teil des (fiktiven) oberfränkisch-thüringischen Ortes „Sedwitz“.\n\nEigentlich will Ralle nur kurz in den Westen, doch dann trifft er auf den notorisch arglosen BGS-Beamten Hubsi (Stephan Zinner), den geschäftstüchtigen Gastwirt Franz Haueisen (Hannes Ringlstetter) und die hübsche Lehrerin Astrid (Judith Richter) – und ehe er sich versieht, findet sich Ralle in einem Geflecht aus Schmuggel, Korruption und Geheimdienstlichkeiten wieder. Sogar die Akte „Kaiserwalzer“ will man ihm verkaufen, bevor sie Russen oder Amerikanern in die Hände fällt. Ralle und seine neuen Freunde erkennen allmählich, dass sie sich nur behaupten können, wenn die kleinen Leute westlich und östlich der Grenze zusammenarbeiten.",
+				"rating": 10.0,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f300333-1.jpg/",
+				"title": "Sedwitz",
+				"tvshowid": 1,
+				"year": 2015
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f176941-g7.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f176941-54.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f176941-17.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f176941-54.jpg/",
+				"file": "smb://NAS/TVseries/Sherlock/",
+				"genre": [
+					"Crime",
+					"Drama",
+					"Mystery"
+				],
+				"label": "Sherlock",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Sherlock Holmes meldet sich zurück und ist jünger und energetischer denn je! In der ebenso originellen wie spannenden Neuauflage des klassischen Stoffes nach Sir Arthur Conan Doyle, begibt sich Holmes mit Smartphone und Notebook bewaffnet auf große Verbrecherjagd im London des 21. Jahrhunderts. Unterstützung erfährt er in Dr. John H. Watson, einen posttraumatisierten Kriegsveteranen, der Holmes bei dessen Ermittlungen nicht von der Seite weicht.",
+				"rating": 9.300000190734864,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f176941-17.jpg/",
+				"title": "Sherlock",
+				"tvshowid": 23,
+				"year": 2010
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f73893-g3.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f73893-5.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f73893-1.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f73893-5.jpg/",
+				"file": "smb://NAS/TVseries/Star.Trek.Enterprise/",
+				"genre": [
+					"Action",
+					"Adventure",
+					"Drama",
+					"Science-Fiction"
+				],
+				"label": "Star Trek - Enterprise",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Die fünfte Star Trek-Serie handelt von den ersten Abenteuern der Menschheit im Weltall. Sie spielt rund 100 Jahre vor Captain James T. Kirk nämlich im 22. Jahrhundert. Die Menschheit hat mit den Vulkaniern einen Partner für die Weltraumforschung gefunden. Captain Jonathan Archer dringt mit seiner Mannschaft vor, wo noch nie ein Mensch zuvor gewesen ist.\nBegleiten Sie Captain Archer und die Crew des ersten Warp-5 Raumschiffes der Erde - der Enterprise NX-01 - auf ihren ersten Schritten hinaus in die Galaxie. Neben vulkanischem Widerstand, flüchtigen Klingonen und aggressiven Andorianern tritt Archers erste große Herausforderung in Form von neuen Gegnern auf den Plan, den Suliban und ihren zeitreisenden Meistern.",
+				"rating": 8.300000190734864,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f73893-1.jpg/",
+				"title": "Star Trek - Enterprise",
+				"tvshowid": 19,
+				"year": 2001
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f74550-g8.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f74550-6.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f74550-1.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f74550-6.jpg/",
+				"file": "smb://NAS/TVseries/Star.Trek.Raumschiff.Voyager/",
+				"genre": [
+					"Action",
+					"Adventure",
+					"Drama",
+					"Science-Fiction"
+				],
+				"label": "Star Trek - Raumschiff Voyager",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Die USS Voyager verschwindet durch den Fürsorger im Delta-Quadranten, fernab von der Föderation. Die Heimreise würde selbst bei maximaler Warpgeschwindigkeit 75 Jahre dauern und so macht sich Captain Kathryn Janeway auf, um einen Weg zurück in den Alpha-Quadranten zu finden…",
+				"rating": 8.699999809265137,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f74550-1.jpg/",
+				"title": "Star Trek - Raumschiff Voyager",
+				"tvshowid": 18,
+				"year": 1995
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f79256-g.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f79256-2.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f79256-3.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f79256-2.jpg/",
+				"file": "smb://NAS/TVseries/Star.Trek.New.Voyages.Phase.II/",
+				"genre": [
+					"Action",
+					"Adventure",
+					"Drama",
+					"Science-Fiction"
+				],
+				"label": "Star Trek New Voyages: Phase II",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "The continuing voyages of Captain Kirk and the crew of the U.S.S. Enterprise, NCC-1701 as seen in the 1966-69 television series, Star Trek. The series was cancelled after its third season. We are restarting the series as if it were in its fourth year.",
+				"rating": 6.300000190734863,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f79256-3.jpg/",
+				"title": "Star Trek New Voyages: Phase II",
+				"tvshowid": 22,
+				"year": 2004
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f72449-g6.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f72449-55.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f72449-4.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f72449-55.jpg/",
+				"file": "smb://NAS/TVseries/Stargate.SG-1/",
+				"genre": [
+					"Action",
+					"Adventure",
+					"Fantasy",
+					"Science-Fiction"
+				],
+				"label": "Stargate SG-1",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Die Fortsetzung des Films \"Stargate\" von 1994, beschreibt die weiteren Abenteuer des SGC (Stargate Command). Es stellt sich heraus, dass der Goa'uld Ra nur einer von vielen außerirdischen Herrschern war, der das Stargate zur Eroberung des Universum benutzte. Nach der vollständigen Entschlüsslung des Stargates, können nun Reisen ins ganze Universum unternommen werden.\nDas Militär sendet SG-Teams um diese neuen Welten zu erforschen, um neue Technologien zu entdecken und sich den Goa'uld zu stellen. Die Charakter Jack O'Neill and Daniel Jackson aus dem Film sind teil von SG-1. Begleitet werden sie von Sam Carter, einer Wissenschaftlerin, und Teal'c, einem Jaffa, der davon überzeugt ist, dass die Goa'uld keine Götter sind. Nachdem Daniel Jackson in der 6. Staffel zeitweise als tot galt (als der Schauspieler Michael Shanks die Serie für ein Jahr verlies), kam Jonas Quinn zu SG-1, ein Wissenschaftler von einem anderen Planeten. In der 9.Staffel verlässt Jack O'Neill SG-1 und wird durch Lt. Colonel Cameron Mitchell als Anführer von SG-1 ersetzt.",
+				"rating": 9.300000190734864,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f72449-4.jpg/",
+				"title": "Stargate SG-1",
+				"tvshowid": 8,
+				"year": 1997
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f80379-g26.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f80379-66.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f80379-45.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f80379-66.jpg/",
+				"file": "smb://NAS/TVseries/Big Bang Theory/",
+				"genre": [
+					"Comedy"
+				],
+				"label": "The Big Bang Theory",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Leonard und Sheldon sind brillante Physiker, die meist zusammen mit ihren Kumpels Howard und Rajesh in ihrem gemeinsamen Apartment abhängen und - natürlich nach einem festgelegten Plan - ihre Videogames pflegen. Einzig und allein Penny, die neue Nachbarin, schafft es hin und wieder, für Abwechslung zu sorgen. Sie hat zwar keine Ahnung von Physik, doch kennt sie die Welt da draußen - etwas, was den Physikern vollkommen fremd zu sein scheint...",
+				"rating": 8.800000190734864,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f80379-45.jpg/",
+				"title": "The Big Bang Theory",
+				"tvshowid": 14,
+				"year": 2007
+			},
+			{
+				"art": {
+					"banner": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fgraphical%2f79511-g4.jpg/",
+					"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f79511-29.jpg/",
+					"poster": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f79511-8.jpg/"
+				},
+				"fanart": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2ffanart%2foriginal%2f79511-29.jpg/",
+				"file": "smb://NAS/TVseries/Torchwood/",
+				"genre": [
+					"Action",
+					"Adventure",
+					"Crime",
+					"Drama",
+					"Science-Fiction"
+				],
+				"label": "Torchwood",
+				"originaltitle": "",
+				"playcount": 1,
+				"plot": "Die geheime Organisation „Torchwood“ operiert jenseits des Gesetzes und steht über der Polizei. Sie soll mysteriöse Mordfälle und unerklärliche Phänomene untersuchen, und die Menschheit vor einer Bedrohung durch Aliens beschützen. Die Artefakte, die Außerirdische auf der Erde zurücklassen, werden konfisziert und untersucht, um die Menschen für die Zukunft zu rüsten. Die Zentrale ist das Torchwood Institut – ein unterirdisches Gebäude mit einem Geheimaufzug.\n\nDie Mitglieder von „Torchwood“ haben auch mit ganz irdischen Problemen zu kämpfen. Mal verlieben sie sich untereinander und haben Affären, mal fühlen sie sich zu Außerirdischen hingezogen. Sie machen Fehler, haben menschliche Schwächen und versuchen, die ungewöhnlichen Erlebnisse und die Gewalt zu verarbeiten, mit der sie täglich konfrontiert werden.",
+				"rating": 8.399999618530274,
+				"thumbnail": "image://http%3a%2f%2fwww.thetvdb.com%2fbanners%2fposters%2f79511-8.jpg/",
+				"title": "Torchwood",
+				"tvshowid": 12,
+				"year": 2006
+			}
+		]
+	}
+}

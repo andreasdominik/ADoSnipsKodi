@@ -54,3 +54,69 @@ function switchOnOffActions(topic, payload)
     end
     return false
 end
+
+
+"""
+    playVideoAction(topic, payload)
+
+Play a video
+* from TV Show database
+* from OTR recordings
+* from Movie database
+"""
+function playVideoAction(topic, payload)
+
+    # log:
+    #
+    println("[ADoSnipsKodi]: action playVideoAction() started.")
+
+    # ignore, if not responsible (other device):
+    #
+    videoName = Snips.extractSlotValue(payload, SLOT_MOVIENAME)
+    if !Snips.isValidOrEnd(videoName, errorMsg = :error_name)
+        kodiOn()
+        return true
+    end
+
+    # ROOMs are not yet supported -> only ONE Fire  in assistent possible.
+    #
+    # room = Snips.extractSlotValue(payload, SLOT_ROOM)
+    # if room == nothing
+    #     room = Snips.getSiteId()
+    # end
+
+    println(">>> Movie Name: $videoName")
+
+    # check ini vals:
+    #
+    if !Snips.isConfigValid(INI_IP) ||
+       !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
+       !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
+       !Snips.isConfigValid(INI_TV)
+
+       Snips.publishEndSession(:noip)
+       return true
+    end
+
+    if ! kodiIsOn()
+        kodiOn()
+    end
+
+    # 1st: check tv shows in DB
+    #
+    tvShows = kodiGetTVshows()
+    tvShow = extractTVshow(videoName, tvShows)
+
+    if tvShow != nothing
+        println(">>> Database: $tvShow")
+    else
+        println(">>> Database: nothing")
+    end
+    # 2nd: check OTR-recordings:
+    #
+
+
+
+    Snips.publishEndSession("Mein Ende")
+    return false
+end
