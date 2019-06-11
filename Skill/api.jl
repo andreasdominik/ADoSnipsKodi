@@ -90,6 +90,22 @@ function kodiGetTVshows()
     return tvShows
 end
 
+
+""""
+    kodiGetOTRrecordings()
+
+recieve a Dict with recordings  with fields:
+:type: :movie/:episode:/:unknown,
+:path, :name, :episode, :season
+"""
+function kodiGetOTRrecordings()
+
+    otrs = getKodiOTRFiles()
+    otrs = parseOTRname.(otrs)
+
+    return otrs
+end
+
 #
 # low-level:
 #
@@ -108,6 +124,25 @@ function kodiCmd(cmd, args...; errorMsg = :error_kodicmd)
     println("Command: $cmd")
     return  Snips.tryrun(curl, errorMsg = errorMsg)
 end
+
+
+"""
+function getKodiOTRFiles()
+
+    Returns a Dict() with files
+    and fields: :file (=path), :label (=filename)
+    * if error, an empty Dict() is returned
+"""
+function getKodiOTRFiles()
+
+    files = Dict()
+    if kodiCmd("getOTR")
+        recordings = parseKodiResult(:files)
+    end
+    return recordings
+end
+
+
 
 #
 # Basic KODI helper functions:
@@ -169,6 +204,36 @@ function extractTVshow(text, tvShows; reverse = true)
     return tvShow
 end
 
+"""
+extractOTR(text, otrs)
+
+    checks, if one of the titles in otrs
+    is includes in text.
+    And returns the matched recordings (as Array of Dicts)
+
+    # Arguments:
+    * text : voice recording
+    * otrs : List of Dicts from KODI
+"""
+function extractOTR(text, otrs)
+
+    otr = nothing        # the result
+    matchedOTRs = []
+    for oneOTR in otrs
+        upperOccursin(oneOTR[:title], text) && push!(matchedOTRs, oneOTR)
+    end
+
+    # nothing found, do reverse search:
+    if length(matchedOTRs) == 0
+        for oneOTR in otrs
+            upperOccursin(text, oneOTR[:title]) && push!(matchedOTRs, oneOTR)
+        end
+    end
+    return matchedOTRs
+end
+
+
+
 
 """
     parseKodiResult(field)
@@ -197,4 +262,51 @@ end
 function upperOccursin(needle, haystack)
 
     return occursin(uppercase(needle), uppercase(haystack))
+end
+
+"""
+    parseOTRnames(otr)
+
+extracts movie name, and episode from OTR filename
+and adds the fields :type (:movie, :episode, :unknown),
+:title, :season, :episode
+to the dict.
+
+## Arguments:
+* rec : Dict with filename in field :label
+"""
+function parseOTRname(otr)
+
+    # make clean filename:
+    otr[:filename] = replace(otr[:file], r"^.*/"is => "")
+    # test if tv show:
+    m = match(r"(^.*)_S([0-9]{2})E([0-9]{2})_([0-9]{2}\.[0-9]{2}\.[0-9]{2})_[0-9]{2}-[0-9]{2}_.*"is,
+              otr[:filename])
+    if m != nothing
+        otr[:title] = replace(m.captures[1], "_"=>" ")
+        otr[:season] = m.captures[2]
+        otr[:episode] = m.captures[3]
+        otr[:date] = m.captures[4]
+        otr[:type] = :episode
+    end
+    if m == nothing
+        m = match(r"(^.*)_([0-9]{2}\.[0-9]{2}\.[0-9]{2})_[0-9]{2}-[0-9]{2}_.*"is,
+                 otr[:filename])
+        if m != nothing
+            otr[:title] = replace(m.captures[1], "_"=>" ")
+            otr[:date] = m.captures[2]
+            otr[:season] = "00"
+            otr[:episode] = "00"
+            otr[:type] = :movie
+        end
+    end
+    if m == nothing
+        otr[:title] = replace(otr[:filename], "_"=>" ")
+        otr[:season] = "00"
+        otr[:episode] = "00"
+        otr[:date] = "00.00.00"
+        otr[:type] = :unknown
+    end
+
+    return otr
 end

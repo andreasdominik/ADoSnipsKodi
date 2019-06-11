@@ -112,8 +112,20 @@ function playVideoAction(topic, payload)
     else
         println(">>> Database: nothing")
     end
+
     # 2nd: check OTR-recordings:
     #
+    if tvShow == nothing
+        recs = kodiGetOTRrecordings()
+        tvShow = extractOTR(videoName, recs)
+    end
+
+    if tvShow != nothing
+        println(">>> OTR: $tvShow")
+    else
+        println(">>> OTR: nothing")
+    end
+
 
 
 
