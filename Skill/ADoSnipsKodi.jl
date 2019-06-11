@@ -4,7 +4,7 @@
 # Normally, it is NOT necessary to change anything in this file,
 # unless you know what you are doing!
 #
-module ADoSnipsTemplate
+module ADoSnipsKodi
 
 const MODULE_DIR = @__DIR__
 const APP_DIR = replace(MODULE_DIR, r"/[^/]*/?$"=>"")
