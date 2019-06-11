@@ -1,45 +1,59 @@
-#
-# actions called by the main callback()
-# provide one function for each intent, defined in the Snips Console.
-#
-# ... and link the function with the intent name as shown in config.jl
-#
-# The functions will be called by the main callback function with
-# 2 arguments:
-# * MQTT-Topic as String
-# * MQTT-Payload (The JSON part) as a nested dictionary, with all keys
-#   as Symbols (Julia-style)
-#
-"""
-function templateAction(topic, payload)
 
-    Dummyaction for the template.
+
 """
-function templateAction(topic, payload)
+    switchOnOffActions(topic, payload)
+
+Switch on KODI with GPIO
+"""
+function switchOnOffActions(topic, payload)
 
     # log:
-    println("[ADoSnipsTemplate]: action templateAction() started.")
-
-    # get my name from config.ini:
     #
-    myName = Snips.getConfig(INI_MY_NAME)
-    if myName == nothing
-        Snips.publishEndSession(:noname)
+    println("[ADoSnipsKodi]: action switchOnOffActions() started.")
+
+    # ignore, if not responsible (other device):
+    #
+    device = Snips.extractSlotValue(payload, SLOT_DEVICE)
+    if device == nothing || !( device in ["kodi"])
         return false
     end
 
-    # get the word to repeat from slot:
+
+    # ROOMs are not yet supported -> only ONE Fire  in assistent possible.
     #
-    word = Snips.extractSlotValue(payload, SLOT_WORD)
-    if word == nothing
+    # room = Snips.extractSlotValue(payload, SLOT_ROOM)
+    # if room == nothing
+    #     room = Snips.getSiteId()
+    # end
+
+    onOrOff = Snips.extractSlotValue(payload, SLOT_ON_OFF)
+    if onOrOff == nothing || !(onOrOff in ["ON", "OFF"])
         Snips.publishEndSession(:dunno)
         return true
     end
 
-    # say who you are:
+    println(">>> $onOrOff, $device")
+
+    # check ini vals:
     #
-    Snips.publishSay(:bravo)
-    Snips.publishEndSession("""$(Snips.langText(:iam)) $myName.
-                            $(Snips.langText(:isay)) $word""")
-    return true
+    if !Snips.isConfigValid(INI_IP) ||
+       !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
+       !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
+       !Snips.isConfigValid(INI_TV)
+
+       Snips.publishEndSession(:noip)
+       return true
+    end
+
+    if onOrOff == "OFF"
+        Snips.publishEndSession(:switchoff)
+        kodiOFF()
+        sleep(0.5)
+        tvOFF()
+    else
+        Snips.publishEndSession(:switchon)
+        kodiON()
+        tvON()
+    end
+    return false
 end
