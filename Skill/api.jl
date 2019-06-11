@@ -124,6 +124,21 @@ function kodiGetEpisodes(tvShow)
 end
 
 
+function kodiPlayEpisode(episode)
+
+    kodiCmd("playEpisode", episode[:episodeid])
+end
+
+function kodiPlayOTR(recording)
+
+    kodiCmd("playListClear")
+    kodiCmd("playListAddOTR", recording[:filename])
+    kodiCmd("playListPlay")
+end
+
+
+#
+
 
 #
 # low-level:
@@ -265,7 +280,6 @@ extractOTR(text, otrs)
 """
 function extractOTR(text, otrs)
 
-    otr = nothing        # the result
     matchedOTRs = []
     for oneOTR in otrs
         upperOccursin(oneOTR[:title], text) && push!(matchedOTRs, oneOTR)
@@ -280,6 +294,41 @@ function extractOTR(text, otrs)
 
     return matchedOTRs
 end
+
+
+"""
+    oldestOTR(otrs)
+
+Find oldest recording (== lowest episode number)
+or record date.
+Returns the selected Dict.
+"""
+function oldestOTR(otrs)
+
+    f = Dict(:season => "99", :episode => "99", :date => "99.99.99")
+
+    for otr in otrs
+        if otr[:season] < f[:season] && (f[:season], f[:episode]) != ("00","00")
+            f = otr
+        elseif otr[:season] == f[:season] && otr[:episode] < f[:episode] &&
+               (f[:season], f[:episode]) != ("00","00")
+            f = otr
+        elseif (otr[:season], otr[:episode]) == ("00", "00") &&
+               otr[:date] < f[:date]
+            f = otr
+        end
+
+        println("$f")
+        println("")
+    end
+
+    if length(f) < 1 || f[:season] == "99"
+        return nothing
+    else
+        return f
+    end
+end
+
 
 
 

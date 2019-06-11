@@ -109,34 +109,47 @@ function playVideoAction(topic, payload)
     tvShow = extractTVshow(videoName, tvShows)
 
     if tvShow != nothing
-        println(">>> Database: $tvShow")
-
         episodes = kodiGetEpisodes(tvShow)
-        println("episodes")
-        println(episodes)
-        matchedVideo = unseenEpisode(episodes)
-    else
-        println(">>> Database: nothing")
+        if length(episodes) > 0
+            matchedVideo = unseenEpisode(episodes)
+        end
+    end
+
+    if matchedVideo != nothing
+        Snips.publishEndSession(
+            """$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])
+               $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der
+               $(Snips.langText(:season)) $(matchedVideo[:season]).
+               $(Snips.langText(:title_is)) $(matchedVideo[:title])""")
+        kodiPlayEpisode(matchedVideo)
+
+        return false
     end
 
 
     # 2nd: check OTR-recordings:
     #
-    if matchedVideo == nothing
-        recs = kodiGetOTRrecordings()
-        episodes = extractOTR(videoName, recs)
-        matchedVideo = unseenEpisode(episodes)
+    recs = kodiGetOTRrecordings()
+    episodes = extractOTR(videoName, recs)
+    println(episodes)
+    if length(episodes) > 0
+        matchedVideo = oldestOTR(episodes)
     end
 
     if matchedVideo != nothing
-        println(">>> OTR: $matchedVideo")
-    else
-        println(">>> OTR: nothing")
+        Snips.publishEndSession(
+            """$(Snips.langText(:i_play_otr)) $(matchedVideo[:title])""")
+        kodiPlayOTR(matchedVideo)
+
+        return false
     end
 
+    # 3rd: look for movies:
+    #
+    # TODO!
 
+    Snips.publishSay(:error_name)
+    Snips.publishEndSession(:diy)
 
-
-    Snips.publishEndSession("Mein Ende")
     return false
 end

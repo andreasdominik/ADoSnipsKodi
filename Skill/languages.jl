@@ -5,6 +5,13 @@ Snips.addText("de", :switchoff, "Ich schalte den Fernseher und Kodi aus.")
 Snips.addText("de", :ok, "OK.")
 Snips.addText("de", :error_kodiCmd, "Ich kann den Kodi Befehl nicht ausführen.")
 Snips.addText("de", :error_name, "Ich konnte leider nicht verstehen, welchen Film ich zeigen soll!")
+Snips.addText("de", :diy, "Ich öffne Kodi; bitte suche selbst aus, was Du sehen willst!")
+Snips.addText("de", :i_play, "Ich spiele")
+Snips.addText("de", :i_play_otr, "Ich spiele die OTR-Aufnahme")
+Snips.addText("de", :season, "Staffel")
+Snips.addText("de", :episode, "Folge")
+Snips.addText("de", :title_is, "der Titel ist")
+
 
 Snips.addText("en", :noip, "I am not able to find the IP address of kodi in config.ini")
 Snips.addText("en", :dunno, "I don't know, what to do")
