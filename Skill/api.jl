@@ -3,28 +3,40 @@
 # skill-actions:
 #
 CURL = "/$(Snips.getAppDir())/Skill/kodi.sh"
-TEMPLATES = "/$(Snips.getAppDir())/Skill/Templates"
+TEMPLATES = "$(Snips.getAppDir())/Skill/Templates"
 
 function kodiOn()
 
-    tvOn()
-    sleep(1)
+    # tvOn()
+    # sleep(1)
 
-    # kodi grabs the hdmi/AV input:
+    # kodi powers TV up and grabs the hdmi/AV input:
     #
     Snips.setGPIO(Snips.getConfig(INI_GPIO), :on)
+    sleep(20)
+    tvTVAV()
 end
 
 
 function kodiOff()
 
      kodiCmd("shutdown")
-     sleep(3)
+     sleep(10)
      Snips.setGPIO(Snips.getConfig(INI_GPIO), :off)
 
      tvOff()
  end
 
+function tvTVAV()
+
+    trigger = Dict(:room => Snips.getSiteId(),
+                   :device => Snips.getConfig(INI_TV),
+                   :commands => ["TV", "wait1", "AV", "return"],
+                   :delay => 0.5
+                   )
+
+    Snips.publishSystemTrigger("ADoSnipsTVViera", trigger)
+end
 function tvOn()
 
     trigger = Dict(:room => Snips.getSiteId(),
