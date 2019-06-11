@@ -1,0 +1,9 @@
+{
+  "jsonrpc": "2.0",
+  "method": "GUI.GetProperties",
+  "params":
+  {
+    "properties" : ["currentwindow"]
+  },
+  "id": 1
+}

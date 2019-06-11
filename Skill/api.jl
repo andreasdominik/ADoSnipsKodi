@@ -2,6 +2,8 @@
 # API function goes here, to be called by the
 # skill-actions:
 #
+CURL = "/$(Snips.getAppDir())/Skill/kodi.sh"
+TEMPLATES = "/$(Snips.getAppDir())/Skill/Templates"
 
 function kodiOn()
 
@@ -16,12 +18,14 @@ end
 
 function kodiOff()
 
-     kodiCmd("off")
+     kodiCmd("shutdown")
      sleep(3)
      Snips.setGPIO(Snips.getConfig(INI_GPIO), :off)
+
+     tvOff()
  end
 
-function tvON()
+function tvOn()
 
     trigger = Dict(:room => Snips.getSiteId(),
                    :device => Snips.getConfig(INI_TV),
@@ -34,7 +38,7 @@ end
 
 
 
-function tvOFF()
+function tvOff()
 
     trigger = Dict(:room => Snips.getSiteId(),
                    :device => Snips.getConfig(INI_TV),
@@ -43,4 +47,44 @@ function tvOFF()
                    )
 
     Snips.publishSystemTrigger("ADoSnipsTVViera", trigger)
+end
+
+
+#
+# KODI commands:
+#
+#
+"""
+    kodiIsOn()
+
+Return true if kodi result has OK printed in the first line
+"""
+function kodiIsOn()
+
+    if runKodiCmd("getVolume", errorMsg = "")
+        return strip(read(`head -1 kodi.status`, String)) == "OK"
+    else
+        return false
+    end
+end
+
+
+
+#
+# low-level:
+#
+#
+"""
+    runKodiCmd(cmd, args...)
+
+Send a Command to Kodi (with optional args).
+"""
+function kodiCmd(cmd, args...; errorMsg = :error_kodicmd)
+
+    ip = Snips.getConfig(INI_IP)
+    port = Snips.getConfig(INI_PORT)
+
+    curl = `$CURL $ip $port $TEMPLATES $cmd $args`
+    println("Command: $cmd")
+    return  Snips.tryrun(curl, errorMsg = errorMsg)
 end

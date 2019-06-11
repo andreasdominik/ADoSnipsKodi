@@ -14,7 +14,7 @@ function switchOnOffActions(topic, payload)
     # ignore, if not responsible (other device):
     #
     device = Snips.extractSlotValue(payload, SLOT_DEVICE)
-    if device == nothing || !( device in ["kodi"])
+    if device == nothing || !( device in ["KODI"])
         return false
     end
 
@@ -47,13 +47,10 @@ function switchOnOffActions(topic, payload)
 
     if onOrOff == "OFF"
         Snips.publishEndSession(:switchoff)
-        kodiOFF()
-        sleep(0.5)
-        tvOFF()
+        kodiOff()
     else
         Snips.publishEndSession(:switchon)
-        kodiON()
-        tvON()
+        kodiOn()
     end
     return false
 end

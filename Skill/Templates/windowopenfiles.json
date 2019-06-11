@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "method": "GUI.ActivateWindow",
+  "params":
+  {
+    "window" : "FILES_TYPE",
+    "parameters" : ["\"FILES_DIR\""]
+  },
+  "id": 1
+}

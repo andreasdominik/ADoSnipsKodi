@@ -1,0 +1,9 @@
+{
+  "jsonrpc": "2.0",
+  "method": "GUI.ActivateWindow",
+  "params":
+  {
+    "window" : "home"
+  },
+  "id": 1
+}

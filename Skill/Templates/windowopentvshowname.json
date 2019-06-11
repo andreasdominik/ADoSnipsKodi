@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "method": "GUI.ActivateWindow",
+  "params":
+  {
+    "window" : "videos",
+    "parameters" : ["videodb://tvshows/titles/TV_SHOW_ID/"]
+  },
+  "id": 1
+}

@@ -1,0 +1,9 @@
+{
+  "jsonrpc": "2.0",
+  "method": "Playlist.Clear",
+  "params":
+  {
+    "playlistid" : 1
+  },
+  "id": 1
+}

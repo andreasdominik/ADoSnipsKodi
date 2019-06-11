@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "method": "Player.Open",
+  "params":
+  {
+    "item" : { "episodeid" : EPISODE_ID },
+    "options": { "resume" : false }
+  },
+  "id": 1
+}

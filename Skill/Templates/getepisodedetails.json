@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "method": "VideoLibrary.GetEpisodeDetails",
+  "params":
+  {
+    "episodeid": EPISODE_ID,
+    "properties": ["episode", "title",
+                   "season", "seasonid",
+                   "showtitle", "tvshowid",
+                   "playcount", "runtime", "file"]
+  },
+  "id": "libTvShows"
+}

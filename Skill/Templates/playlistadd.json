@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "method": "Playlist.Add",
+  "params":
+  {
+    "playlistid" : 1,
+    "item" :
+    {
+      "file" : "smb://nas.home.ado/OTR/FILE_NAME"
+    }
+  },
+  "id": 1
+}

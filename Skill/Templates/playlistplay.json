@@ -1,0 +1,12 @@
+{
+  "jsonrpc": "2.0",
+  "method": "Player.Open",
+  "params":
+  {
+    "item" :
+    {
+      "playlistid" : 1
+    }
+  },
+  "id": 1
+}
