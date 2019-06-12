@@ -90,6 +90,14 @@ function kodiGetTVshows()
     return tvShows
 end
 
+function kodiGetMovies()
+
+    if kodiCmd("getmovies")
+        movies = parseKodiResult(:movies)
+    end
+    return movies
+end
+
 
 """"
     kodiGetOTRrecordings()
@@ -133,6 +141,13 @@ function kodiPlayOTR(recording)
 
     kodiCmd("playListClear")
     kodiCmd("playListAddOTR", recording[:filename])
+    kodiCmd("playListPlay")
+end
+
+function kodiPlayMovie(movie)
+
+    kodiCmd("playListClear")
+    kodiCmd("playListAdd", movie[:movieid])
     kodiCmd("playListPlay")
 end
 

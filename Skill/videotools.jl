@@ -170,3 +170,16 @@ function oldestOTR(otrs)
         return f
     end
 end
+
+
+function matchMovie(name, movies)
+
+    matchedMovies = []
+
+    for m in movies
+        if occursin(name, m.[:title])
+            push!(matchedMovies, m)
+        end
+    end
+    return matchedMovies
+end

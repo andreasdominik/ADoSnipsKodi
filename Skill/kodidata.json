@@ -1,18 +1,10 @@
 {
   "jsonrpc": "2.0",
-  "method": "VideoLibrary.GetEpisodes",
+  "method": "Files.GetDirectory",
   "params":
   {
-    "limits":
-    {
-      "start" : 0,
-      "end": 1000
-    },
-    "tvshowid": 14,
-    "properties": ["episode", "season", "seasonid",
-                   "showtitle", "tvshowid",
-                   "title",
-                   "playcount", "runtime", "file"]
+    "directory": "smb://nas.home.ado/OTR/",
+    "media": "video"
   },
-  "id": "libTvShows"
+  "id": 1
 }

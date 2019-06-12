@@ -7,13 +7,17 @@ Snips.addText("de", :error_kodiCmd, "Ich kann den Kodi Befehl nicht ausführen."
 Snips.addText("de", :error_name, "Ich konnte leider nicht verstehen, welchen Film ich zeigen soll!")
 Snips.addText("de", :diy, "Ich öffne Kodi; bitte suche selbst aus, was Du sehen willst!")
 Snips.addText("de", :i_play, "Ich spiele")
-Snips.addText("de", :i_play_otr, "Ich spiele die OTR-Aufnahme")
+Snips.addText("de", :i_play_new_otr, "Ich spiele die nächste OTR-Aufnahme")
 Snips.addText("de", :season, "Staffel")
 Snips.addText("de", :episode, "Folge")
+Snips.addText("de", :episodes, "Folgen")
+Snips.addText("de", :recordings, "Aufnahmen")
 Snips.addText("de", :title_is, "der Titel ist")
 Snips.addText("de", :i_search_show, "Ich suche in der Seriendatenbank nach")
-Snips.addText("de", :i_search_show, "Ich suche in der Filmdatenbank nach")
+Snips.addText("de", :i_search_movie, "Ich suche in der Filmdatenbank nach")
 Snips.addText("de", :i_search_rec, "Ich suche in den Fernsehaufnahmen nach")
+Snips.addText("de", :found, "Gefunden")
+Snips.addText("de", :new, "davon neu")
 
 
 

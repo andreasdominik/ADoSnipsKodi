@@ -137,16 +137,25 @@ function playVideoAction(topic, payload)
 
     # 2nd: check OTR-recordings:
     #
+    Snips.publishSay("$(snips.langText(:i_search_rec)) $videoName", wait = false)
+
     recs = kodiGetOTRrecordings()
     episodes = extractOTR(videoName, recs)
     println(episodes)
     if length(episodes) > 0
         matchedVideo = oldestOTR(episodes)
+
+        numVideos = length(episides)
+        # numUnseen = countUnseen(episodes)
+
+        Snips.publishSay(
+             """$(Snips.langText(:found)): $numVideos $(Snips.langText(:recordings)).""")
+             # $(Snips.langText(:new)): $numUnseen.""")
     end
 
     if matchedVideo != nothing
         Snips.publishEndSession(
-            """$(Snips.langText(:i_play_otr)) $(matchedVideo[:title])""")
+            """$(Snips.langText(:i_play_new_otr)) $(matchedVideo[:title])""")
         kodiPlayOTR(matchedVideo)
 
         return false
@@ -154,10 +163,26 @@ function playVideoAction(topic, payload)
 
     # 3rd: look for movies:
     #
-    # TODO!
+    Snips.publishSay("$(snips.langText(:i_search_movie)) $videoName", wait = false)
+    movies = kodiGetMovies()
+    matchedVideos = matchMovie(videoName, movies)
 
-    Snips.publishSay(:error_name)
+    numVideos = length(matchedVideos)
+    if length(matchedVideos) > 1
+        Snips.publishEndSession(
+            """$(snips.langText(:found)) $(numVideos).
+            $(Snips.langText(:diy))"""
+        return true
+
+    elseif numVideos == 1
+        Snips.publishEndSession(
+            """$(Snips.langText(:i_play)) $(matchedVideo[:title])""")
+        kodiPlayMovie(matchedVideo)
+        return false
+    end
+
+
+    Snips.publishSay(:dunno)
     Snips.publishEndSession(:diy)
-
-    return false
+    return true
 end
