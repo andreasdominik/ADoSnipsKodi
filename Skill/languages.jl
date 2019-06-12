@@ -11,6 +11,10 @@ Snips.addText("de", :i_play_otr, "Ich spiele die OTR-Aufnahme")
 Snips.addText("de", :season, "Staffel")
 Snips.addText("de", :episode, "Folge")
 Snips.addText("de", :title_is, "der Titel ist")
+Snips.addText("de", :i_search_show, "Ich suche in der Seriendatenbank nach")
+Snips.addText("de", :i_search_show, "Ich suche in der Filmdatenbank nach")
+Snips.addText("de", :i_search_rec, "Ich suche in den Fernsehaufnahmen nach")
+
 
 
 Snips.addText("en", :noip, "I am not able to find the IP address of kodi in config.ini")

@@ -105,6 +105,7 @@ function playVideoAction(topic, payload)
     matchedVideo = nothing
     # 1st: check tv shows in DB
     #
+    Snips.publishSay("$(snips.langText(:i_search_show)) $videoName", wait = false)
     tvShows = kodiGetTVshows()
     tvShow = extractTVshow(videoName, tvShows)
 
@@ -112,6 +113,9 @@ function playVideoAction(topic, payload)
         episodes = kodiGetEpisodes(tvShow)
         if length(episodes) > 0
             matchedVideo = unseenEpisode(episodes)
+
+            numVideos = length(episides)
+            numUnseen = unseen(episodes)
         end
     end
 
