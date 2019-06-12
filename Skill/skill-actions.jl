@@ -115,7 +115,11 @@ function playVideoAction(topic, payload)
             matchedVideo = unseenEpisode(episodes)
 
             numVideos = length(episides)
-            numUnseen = unseen(episodes)
+            numUnseen = countUnseen(episodes)
+
+            Snips.publishSay(
+                 """$(Snips.langText(:found)): $numVideos $(Snips.langText(:episodes)).
+                 $(Snips.langText(:new)): $numUnseen.""")
         end
     end
 
