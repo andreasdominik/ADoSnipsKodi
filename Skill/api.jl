@@ -84,6 +84,7 @@ end
 
 function kodiGetTVshows()
 
+    tvShows = []
     if kodiCmd("getTVshows")
         tvShows = parseKodiResult(:tvshows)
     end
@@ -92,7 +93,8 @@ end
 
 function kodiGetMovies()
 
-    if kodiCmd("getmovies")
+    movies = []
+    if kodiCmd("getMovies")
         movies = parseKodiResult(:movies)
     end
     return movies
@@ -100,16 +102,20 @@ end
 
 
 """"
-    kodiGetOTRrecordings()
+    kodiGetRrecordings()
 
 recieve a Dict with recordings  with fields:
 :type: :movie/:episode:/:unknown,
 :path, :name, :episode, :season
 """
-function kodiGetOTRrecordings(share)
+function kodiGetRrecordings(share)
 
     otrs = getKodiOTRFiles(share)
-    otrs = parseOTRname.(otrs)
+    if length(otrs) > 0
+        otrs = parseOTRname.(otrs)
+    else
+        otrs = []
+    end
 
     return otrs
 end
@@ -230,7 +236,7 @@ end
 """
     parseOTRnames(otr)
 
-extracts movie name, and episode from OTR filename
+Extract movie name, and episode from OTR filename
 and adds the fields :type (:movie, :episode, :unknown),
 :title, :season, :episode
 to the dict.

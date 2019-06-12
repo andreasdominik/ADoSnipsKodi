@@ -141,7 +141,7 @@ function playVideoAction(topic, payload)
         Snips.publishSay("""$(Snips.langText(:i_search_rec)) $videoName.
                 $(Snips.langText(:be_patient))""", wait = false)
 
-        recs = kodiGetOTRrecordings(Snips.getConfig(INI_SHARE))
+        recs = kodiGetRrecordings(Snips.getConfig(INI_SHARE))
         episodes = extractOTR(videoName, recs)
         println(episodes)
         if length(episodes) > 0
@@ -165,7 +165,7 @@ function playVideoAction(topic, payload)
 
     # 3rd: look for movies:
     #
-    Snips.publishSay("$(snips.langText(:i_search_movie)) $videoName", wait = false)
+    Snips.publishSay("$(Snips.langText(:i_search_movie)) $videoName", wait = false)
     movies = kodiGetMovies()
     matchedVideos = matchMovie(videoName, movies)
 
@@ -184,7 +184,7 @@ function playVideoAction(topic, payload)
     end
 
 
-    Snips.publishSay(:dunno)
+    Snips.publishSay(:error_name)
     Snips.publishEndSession(:diy)
     return true
 end
