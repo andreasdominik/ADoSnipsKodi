@@ -105,7 +105,7 @@ function playVideoAction(topic, payload)
     matchedVideo = nothing
     # 1st: check tv shows in DB
     #
-    Snips.publishSay("$(snips.langText(:i_search_show)) $videoName", wait = false)
+    Snips.publishSay("$(Snips.langText(:i_search_show)) $videoName", wait = false)
     tvShows = kodiGetTVshows()
     tvShow = extractTVshow(videoName, tvShows)
 
@@ -114,7 +114,7 @@ function playVideoAction(topic, payload)
         if length(episodes) > 0
             matchedVideo = unseenEpisode(episodes)
 
-            numVideos = length(episides)
+            numVideos = length(episodes)
             numUnseen = countUnseen(episodes)
 
             Snips.publishSay(
@@ -138,7 +138,7 @@ function playVideoAction(topic, payload)
     #
     if Snips.isConfigValid(INI_SHARE)
 
-        Snips.publishSay("$(snips.langText(:i_search_rec)) $videoName", wait = false)
+        Snips.publishSay("$(Snips.langText(:i_search_rec)) $videoName", wait = false)
 
         recs = kodiGetOTRrecordings(Snips.getConfig(INI_SHARE))
         episodes = extractOTR(videoName, recs)
@@ -171,8 +171,8 @@ function playVideoAction(topic, payload)
     numVideos = length(matchedVideos)
     if length(matchedVideos) > 1
         Snips.publishEndSession(
-            """$(snips.langText(:found)) $(numVideos).
-            $(Snips.langText(:diy))"""
+            """$(Snips.langText(:found)) $(numVideos).
+            $(Snips.langText(:diy))""")
         return true
 
     elseif numVideos == 1

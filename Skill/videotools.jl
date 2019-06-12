@@ -177,7 +177,7 @@ function matchMovie(name, movies)
     matchedMovies = []
 
     for m in movies
-        if occursin(name, m.[:title])
+        if occursin(name, m[:title])
             push!(matchedMovies, m)
         end
     end
