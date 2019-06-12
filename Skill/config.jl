@@ -33,6 +33,7 @@ const INI_IP = "ip"
 const INI_PORT = "port"
 const INI_TV = "tv"
 const INI_GPIO="gpio"
+const INI_SHARE="share"
 
 
 #

@@ -106,9 +106,9 @@ recieve a Dict with recordings  with fields:
 :type: :movie/:episode:/:unknown,
 :path, :name, :episode, :season
 """
-function kodiGetOTRrecordings()
+function kodiGetOTRrecordings(share)
 
-    otrs = getKodiOTRFiles()
+    otrs = getKodiOTRFiles(share)
     otrs = parseOTRname.(otrs)
 
     return otrs
@@ -176,16 +176,16 @@ end
 
 
 """
-    getKodiOTRFiles()
+    getKodiOTRFiles(share)
 
 Return a Dict() with files
 and fields: :file (=path), :label (=filename)
 * if error, an empty Dict() is returned
 """
-function getKodiOTRFiles()
+function getKodiOTRFiles(share)
 
     files = Dict()
-    if kodiCmd("getRecordings")
+    if kodiCmd("getRecordings", share)
         recordings = parseKodiResult(:files)
     end
     return recordings

@@ -3,7 +3,7 @@
   "method": "Files.GetDirectory",
   "params":
   {
-    "directory": "smb://nas.home.ado/OTR/",
+    "directory": "REC_DIRECTORY",
     "media": "video"
   },
   "id": 1

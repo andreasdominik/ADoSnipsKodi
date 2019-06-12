@@ -39,7 +39,9 @@ case "$CMD" in
     cat $TEMPLATE | sed "s/EPISODE_ID/$PARAM/g" > $JSON
     ;;
   getRecordings)
-    cp "${TEMPLATES}/getrecfiles.json" $JSON
+    TEMPLATE="${TEMPLATES}/getrecfiles.json"
+    cat $TEMPLATE | sed "s+REC_DIRECTORY+$PARAM+g" > $JSON
+    # cp "${TEMPLATES}/getrecfiles.json" $JSON
     ;;
   playListClear)
     cp "${TEMPLATES}/playlistclear.json" $JSON
