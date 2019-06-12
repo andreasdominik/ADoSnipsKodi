@@ -138,7 +138,8 @@ function playVideoAction(topic, payload)
     #
     if Snips.isConfigValid(INI_SHARE)
 
-        Snips.publishSay("$(Snips.langText(:i_search_rec)) $videoName", wait = false)
+        Snips.publishSay("""$(Snips.langText(:i_search_rec)) $videoName.
+                $(Snips.langText(:be_patient))""", wait = false)
 
         recs = kodiGetOTRrecordings(Snips.getConfig(INI_SHARE))
         episodes = extractOTR(videoName, recs)
@@ -146,7 +147,7 @@ function playVideoAction(topic, payload)
         if length(episodes) > 0
             matchedVideo = oldestOTR(episodes)
 
-            numVideos = length(episides)
+            numVideos = length(episodes)
             # numUnseen = countUnseen(episodes)
 
             Snips.publishSay(

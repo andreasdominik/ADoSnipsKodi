@@ -16,6 +16,7 @@ Snips.addText("de", :title_is, "der Titel ist")
 Snips.addText("de", :i_search_show, "Ich suche in der Seriendatenbank nach")
 Snips.addText("de", :i_search_movie, "Ich suche in der Filmdatenbank nach")
 Snips.addText("de", :i_search_rec, "Ich suche in den Fernsehaufnahmen nach")
+Snips.addText("de", :be_patient, "Bitte etwas Geduld Dies kann einen Moment dauern!")
 Snips.addText("de", :found, "Gefunden")
 Snips.addText("de", :new, "davon neu")
 
