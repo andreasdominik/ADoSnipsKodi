@@ -38,8 +38,8 @@ case "$CMD" in
     TEMPLATE="${TEMPLATES}/getepisodedetails.json"
     cat $TEMPLATE | sed "s/EPISODE_ID/$PARAM/g" > $JSON
     ;;
-  getOTR)
-    cp "${TEMPLATES}/getotrfiles.json" $JSON
+  getRecordings)
+    cp "${TEMPLATES}/getrecfiles.json" $JSON
     ;;
   playListClear)
     cp "${TEMPLATES}/playlistclear.json" $JSON

@@ -185,7 +185,7 @@ and fields: :file (=path), :label (=filename)
 function getKodiOTRFiles()
 
     files = Dict()
-    if kodiCmd("getOTR")
+    if kodiCmd("getRecordings")
         recordings = parseKodiResult(:files)
     end
     return recordings
