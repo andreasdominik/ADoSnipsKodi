@@ -98,9 +98,10 @@ function playVideoAction(topic, payload)
        return true
     end
 
-    if ! kodiIsOn()
-        kodiOn()
-    end
+    # if ! kodiIsOn()
+    #     kodiOn()
+    # end
+    kodiOn()
 
     matchedVideo = nothing
     # 1st: check tv shows in DB
@@ -158,7 +159,7 @@ function playVideoAction(topic, payload)
         if matchedVideo != nothing
             Snips.publishEndSession(
                 """$(Snips.langText(:i_play_new_otr)) $(matchedVideo[:title])""")
-            kodiPlayOTR(matchedVideo)
+            kodiPlayFile(matchedVideo)
             return false
         end
     end
@@ -170,13 +171,14 @@ function playVideoAction(topic, payload)
     matchedVideos = matchMovie(videoName, movies)
 
     numVideos = length(matchedVideos)
-    if length(matchedVideos) > 1
+    if numVideos > 1
         Snips.publishEndSession(
             """$(Snips.langText(:found)) $(numVideos).
             $(Snips.langText(:diy))""")
         return true
 
     elseif numVideos == 1
+        matchedVideo = matchedVideos[1]
         Snips.publishEndSession(
             """$(Snips.langText(:i_play)) $(matchedVideo[:title])""")
         kodiPlayMovie(matchedVideo)

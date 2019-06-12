@@ -1,4 +1,4 @@
-#!/bin/bash -xv
+#!/bin/bash
 #
 # curl JSON to KODI for API remote control
 #
@@ -46,9 +46,9 @@ case "$CMD" in
   playListClear)
     cp "${TEMPLATES}/playlistclear.json" $JSON
     ;;
-  playListAddOTR)
-    TEMPLATE="${TEMPLATES}/playlistaddotr.json"
-    cat $TEMPLATE | sed "s/FILE_NAME/$PARAM/g" > $JSON
+  playListAddFile)
+    TEMPLATE="${TEMPLATES}/playlistaddfile.json"
+    cat $TEMPLATE | sed "s+FILE_PATH+$PARAM+g" > $JSON
     ;;
   playListPlay)
     cp "${TEMPLATES}/playlistplay.json" $JSON
@@ -91,9 +91,13 @@ case "$CMD" in
     ;;
 esac
 
+cat $JSON
+
 curl ${IP}:${PORT}/jsonrpc --data @${JSON} \
      --header 'content-type: application/json;' \
      -o kodiresult.json
+
+cat kodiresult.json
 
 # evaluate curl result:
 RESULT=$?

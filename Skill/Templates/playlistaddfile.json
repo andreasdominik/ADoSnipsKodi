@@ -6,7 +6,7 @@
     "playlistid" : 1,
     "item" :
     {
-      "file" : "smb://nas.home.ado/OTR/FILE_NAME"
+      "file" : "FILE_PATH"
     }
   },
   "id": 1

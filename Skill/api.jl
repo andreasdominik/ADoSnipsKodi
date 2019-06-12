@@ -143,10 +143,10 @@ function kodiPlayEpisode(episode)
     kodiCmd("playEpisode", episode[:episodeid])
 end
 
-function kodiPlayOTR(recording)
+function kodiPlayFile(recording)
 
     kodiCmd("playListClear")
-    kodiCmd("playListAddOTR", recording[:filename])
+    kodiCmd("playListAddFile", recording[:file])
     kodiCmd("playListPlay")
 end
 
