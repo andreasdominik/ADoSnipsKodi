@@ -152,9 +152,7 @@ end
 
 function kodiPlayMovie(movie)
 
-    kodiCmd("playListClear")
-    kodiCmd("playListAdd", movie[:movieid])
-    kodiCmd("playListPlay")
+    kodiCmd("playMovie", movie[:movieid])
 end
 
 

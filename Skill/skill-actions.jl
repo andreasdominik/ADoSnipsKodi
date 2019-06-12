@@ -98,10 +98,9 @@ function playVideoAction(topic, payload)
        return true
     end
 
-    # if ! kodiIsOn()
-    #     kodiOn()
-    # end
-    kodiOn()
+     if ! kodiIsOn()
+         kodiOn()
+     end
 
     matchedVideo = nothing
     # 1st: check tv shows in DB
