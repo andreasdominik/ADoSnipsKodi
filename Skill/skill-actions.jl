@@ -98,8 +98,11 @@ function playVideoAction(topic, payload)
        return true
     end
 
-     if ! kodiIsOn()
-         kodiOn()
+     if !Snips.ping(Snips.getConfig(INI_IP))
+         if !kodiOn()
+             Snips.publishEndSession(:error_on)
+             return true
+         end
      end
 
     matchedVideo = nothing

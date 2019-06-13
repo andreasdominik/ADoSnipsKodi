@@ -14,15 +14,29 @@ function kodiOn()
     # kodi powers TV up and grabs the hdmi/AV input:
     #
     Snips.setGPIO(Snips.getConfig(INI_GPIO), :on)
-    sleep(20)
-    tvTVAV()
+
+    # wait until ping is successful:
+    #
+    waitMax = 60
+    while (! Snips.ping(Snips.getConfig(INI_IP))) && (waitMax > 0)
+        sleep(2)
+        waitMax -= 1
+    end
+
+    if waitMax < 1
+        return false
+    else
+        sleep(5)
+        tvTVAV()
+        return true
+    end
 end
 
 
 function kodiOff()
 
      kodiCmd("shutdown")
-     sleep(10)
+     sleep(2)
      Snips.setGPIO(Snips.getConfig(INI_GPIO), :off)
 
      tvOff()

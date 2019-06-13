@@ -1,10 +1,6 @@
-Snips.addText("de", :noip, "Ich finde die Adresse von Kodi nicht in der config Datei!")
-Snips.addText("de", :dunno, "Ich habe nicht verstanden was ich tun soll!")
 Snips.addText("de", :switchon, "Ich schalte den Fernseher und Kodi ein. Bitte einen Moment Geduld")
 Snips.addText("de", :switchoff, "Ich schalte den Fernseher und Kodi aus.")
 Snips.addText("de", :ok, "OK.")
-Snips.addText("de", :error_kodiCmd, "Ich kann den Kodi Befehl nicht ausführen.")
-Snips.addText("de", :error_name, "Ich konnte leider nicht verstehen, welchen Film ich zeigen soll!")
 Snips.addText("de", :diy, "Ich öffne Kodi; bitte suche selbst aus, was Du sehen willst!")
 Snips.addText("de", :i_play, "Ich spiele")
 Snips.addText("de", :i_play_new_otr, "Ich spiele die nächste OTR-Aufnahme")
@@ -20,6 +16,11 @@ Snips.addText("de", :be_patient, "Bitte etwas Geduld Dies kann einen Moment daue
 Snips.addText("de", :found, "Gefunden")
 Snips.addText("de", :new, "davon neu")
 
+Snips.addText("de", :noip, "Ich finde die Adresse von Kodi nicht in der config Datei!")
+Snips.addText("de", :dunno, "Ich habe nicht verstanden was ich tun soll!")
+Snips.addText("de", :error_kodiCmd, "Ich kann den Kodi Befehl nicht ausführen.")
+Snips.addText("de", :error_name, "Ich konnte leider nicht verstehen, welchen Film ich zeigen soll!")
+Snips.addText("de", :error_on, "Ich kann leider Kodi nicht einchalten!")
 
 
 Snips.addText("en", :noip, "I am not able to find the IP address of kodi in config.ini")
