@@ -3,7 +3,7 @@
   "method": "Player.Open",
   "params":
   {
-    "item" : { "file" :  "smb://nas.home.ado/OTR/FILE_NAME"}
+    "item" : { "file" :  "FILE_PATH"}
   },
   "id": 1
 }

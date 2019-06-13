@@ -8,9 +8,6 @@ const JSON = "kodiresult.json"
 
 function kodiOn()
 
-    # tvOn()
-    # sleep(1)
-
     # kodi powers TV up and grabs the hdmi/AV input:
     #
     Snips.setGPIO(Snips.getConfig(INI_GPIO), :on)
@@ -159,9 +156,7 @@ end
 
 function kodiPlayFile(recording)
 
-    kodiCmd("playListClear")
-    kodiCmd("playListAddFile", recording[:file])
-    kodiCmd("playListPlay")
+    kodiCmd("playRec", recording[:file])
 end
 
 function kodiPlayMovie(movie)
