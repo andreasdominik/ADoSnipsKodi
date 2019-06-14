@@ -1,10 +1,5 @@
 {
   "jsonrpc": "2.0",
-  "method": "Files.GetDirectory",
-  "params":
-  {
-    "directory": "smb://nas.home.ado/Pictures/",
-    "media": "pictures"
-  },
+  "method": "System.Shutdown",
   "id": 1
 }

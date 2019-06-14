@@ -68,8 +68,9 @@ case "$CMD" in
     TEMPLATE="${TEMPLATES}/playrec.json"
     cat $TEMPLATE | sed "s+FILE_PATH+$PARAM+g" > $JSON
     ;;
-  playListPlay)
-    cp "${TEMPLATES}/playlistplay.json" $JSON
+  playPictures)
+    TEMPLATE="${TEMPLATES}/playpictures.json"
+    cat $TEMPLATE | sed "s+FILE_PATH+$PARAM+g" > $JSON
     ;;
   openHomeWindow)
     cp "${TEMPLATES}/windowopenhome.json" $JSON
