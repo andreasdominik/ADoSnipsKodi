@@ -41,7 +41,10 @@ case "$CMD" in
   getRecordings)
     TEMPLATE="${TEMPLATES}/getrecfiles.json"
     cat $TEMPLATE | sed "s+REC_DIRECTORY+$PARAM+g" > $JSON
-    # cp "${TEMPLATES}/getrecfiles.json" $JSON
+    ;;
+  getPictureFiles)
+    TEMPLATE="${TEMPLATES}/getpicturefiles.json"
+    cat $TEMPLATE | sed "s+PATH_PICTURES+$PARAM+g" > $JSON
     ;;
   playListClear)
     cp "${TEMPLATES}/playlistclear.json" $JSON

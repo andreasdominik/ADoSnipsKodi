@@ -24,6 +24,7 @@ Snips.setAppName(APP_NAME)
 
 include("api.jl")
 include("videotools.jl")
+include("picturetools.jl")
 include("skill-actions.jl")
 include("languages.jl")
 include("config.jl")

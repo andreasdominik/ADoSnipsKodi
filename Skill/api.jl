@@ -170,6 +170,40 @@ function kodiWindowPictures(path)
 end
 #
 
+"""
+getKodiOTRFiles(share)
+
+Return a Dict() with files
+and fields: :file (=path), :label (=filename)
+* if error, an empty Dict() is returned
+"""
+function getKodiOTRFiles(share)
+
+    files = Dict()
+    if kodiCmd("getRecordings", share)
+        recordings = parseKodiResult(:files)
+    end
+    return recordings
+end
+
+
+"""
+Return the directory of "path" as list of Dicts.
+Each dict has the fields:
+* file - path/name
+* filetype - e.g. directory
+* label - file name
+* type
+"""
+function kodiGetPictureFiles(path)
+
+    files = Dict()
+    if kodiCmd("getPictureFiles", path)
+        files = parseKodiResult(:files)
+    end
+    return files
+end
+
 
 #
 # low-level:
@@ -191,21 +225,6 @@ function kodiCmd(cmd, args...; errorMsg = :error_kodicmd)
 end
 
 
-"""
-    getKodiOTRFiles(share)
-
-Return a Dict() with files
-and fields: :file (=path), :label (=filename)
-* if error, an empty Dict() is returned
-"""
-function getKodiOTRFiles(share)
-
-    files = Dict()
-    if kodiCmd("getRecordings", share)
-        recordings = parseKodiResult(:files)
-    end
-    return recordings
-end
 
 
 

@@ -3,7 +3,7 @@
   "method": "Files.GetDirectory",
   "params":
   {
-    "directory": "smb://nas.home.ado/Pictures/",
+    "directory": "PATH_PICTURES",
     "media": "pictures"
   },
   "id": 1

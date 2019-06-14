@@ -27,16 +27,16 @@ const SLOT_ON_OFF = "on_or_off"
 
 const SLOT_MOVIENAME = "movieName"
 const SLOT_YEAR = "year"
-const SLOt_KEYWORDS = "keyword"
+const SLOT_KEYWORDS = "keyword"
 
 # name of entry in config.ini:
 #
 const INI_IP = "ip"
 const INI_PORT = "port"
 const INI_TV = "tv"
-const INI_GPIO="gpio"
-const INI_SHARE="recordings"
-const INI_PICTURES="pictures"
+const INI_GPIO = "gpio"
+const INI_SHARE = "recordings"
+const INI_PICTURES = "pictures"
 
 
 #
@@ -52,6 +52,7 @@ const INI_PICTURES="pictures"
 if LANG == "de"
     Snips.registerIntentAction("ADoSnipsOnOffDE", switchOnOffActions)
     Snips.registerIntentAction("ADoSnipsPlayVideoDE", playVideoAction)
+    Snips.registerIntentAction("ADoSnipsPlayPicturesDE", playSlideshowAction)
 else LANG == "en"
     Snips.registerIntentAction("ADoSnipsOnOffEN", switchOnOffActions)
 end
