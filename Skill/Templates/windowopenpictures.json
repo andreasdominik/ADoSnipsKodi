@@ -4,7 +4,7 @@
   "params":
   {
     "window" : "pictures",
-    "parameters" : ["smb://nas.home.ado/Pictures/"]
+    "parameters" : ["PICTURES_PATH"]
   },
   "id": 1
 }

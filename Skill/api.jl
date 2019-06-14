@@ -164,7 +164,10 @@ function kodiPlayMovie(movie)
     kodiCmd("playMovie", movie[:movieid])
 end
 
+function kodiWindowPictures(path)
 
+    kodiCmd("openPictureWindow", path)
+end
 #
 
 

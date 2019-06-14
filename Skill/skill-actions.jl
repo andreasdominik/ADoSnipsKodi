@@ -192,3 +192,148 @@ function playVideoAction(topic, payload)
     Snips.publishEndSession(:diy)
     return true
 end
+
+
+
+
+"""
+    playSlideshowAction(topic, payload)
+
+Play a Slideshow
+* from a file share
+
+slideshows are in directories, with year and keywords as part of names
+"""
+function playSlideshowAction(topic, payload)
+
+    # log:
+    #
+    println("[ADoSnipsKodi]: action playSlideshowAction() started.")
+
+    # if no keywords, just open pictures:
+    #
+    keywords = Snips.extractSlotValue(payload, SLOT_KEYWORDS, multiple = true)
+    year = Snips.extractSlotValue(payload, SLOT_YEAR)
+    if  year == nothing || 1900 < year < 2050 ||
+        keywords == nothing || length(keywords) > 0
+
+        Snips.publishEndSession(:which_pictures)
+        kodiOn()
+        kodiWindowPictures()
+        return true
+    end
+
+    # ROOMs are not yet supported -> only ONE Fire  in assistent possible.
+    #
+    # room = Snips.extractSlotValue(payload, SLOT_ROOM)
+    # if room == nothing
+    #     room = Snips.getSiteId()
+    # end
+
+    println(">>> Movie Name: $videoName")
+
+    # check ini vals:
+    #
+    if !Snips.isConfigValid(INI_IP) ||
+       !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
+       !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
+       !Snips.isConfigValid(INI_TV)
+
+       Snips.publishEndSession(:noip)
+       return true
+    end
+
+     if !Snips.ping(Snips.getConfig(INI_IP))
+         if !kodiOn()
+             Snips.publishEndSession(:error_on)
+             return true
+         end
+     end
+
+    matchedVideo = nothing
+    # 1st: check tv shows in DB
+    #
+    Snips.publishSay("$(Snips.langText(:i_search_show)) $videoName", wait = false)
+    tvShows = kodiGetTVshows()
+    tvShow = extractTVshow(videoName, tvShows)
+
+    if tvShow != nothing
+        episodes = kodiGetEpisodes(tvShow)
+        if length(episodes) > 0
+            matchedVideo = unseenEpisode(episodes)
+
+            numVideos = length(episodes)
+            numUnseen = countUnseen(episodes)
+
+            Snips.publishSay(
+                 """$(Snips.langText(:found)): $numVideos $(Snips.langText(:episodes)).
+                 $(Snips.langText(:new)): $numUnseen.""")
+        end
+    end
+
+    if matchedVideo != nothing
+        Snips.publishEndSession(
+            """$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])
+               $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der
+               $(Snips.langText(:season)) $(matchedVideo[:season]).
+               $(Snips.langText(:title_is)) $(matchedVideo[:title])""")
+        kodiPlayEpisode(matchedVideo)
+        return false
+    end
+
+
+    # 2nd: check OTR-recordings:
+    #
+    if Snips.isConfigValid(INI_SHARE)
+
+        Snips.publishSay("""$(Snips.langText(:i_search_rec)) $videoName.
+                $(Snips.langText(:be_patient))""", wait = false)
+
+        recs = kodiGetRrecordings(Snips.getConfig(INI_SHARE))
+        episodes = extractOTR(videoName, recs)
+        println(episodes)
+        if length(episodes) > 0
+            matchedVideo = oldestOTR(episodes)
+
+            numVideos = length(episodes)
+            # numUnseen = countUnseen(episodes)
+
+            Snips.publishSay(
+                 """$(Snips.langText(:found)): $numVideos $(Snips.langText(:recordings)).""")
+                 # $(Snips.langText(:new)): $numUnseen.""")
+        end
+
+        if matchedVideo != nothing
+            Snips.publishEndSession(
+                """$(Snips.langText(:i_play_new_otr)) $(matchedVideo[:title])""")
+            kodiPlayFile(matchedVideo)
+            return false
+        end
+    end
+
+    # 3rd: look for movies:
+    #
+    Snips.publishSay("$(Snips.langText(:i_search_movie)) $videoName", wait = false)
+    movies = kodiGetMovies()
+    matchedVideos = matchMovie(videoName, movies)
+
+    numVideos = length(matchedVideos)
+    if numVideos > 1
+        Snips.publishEndSession(
+            """$(Snips.langText(:found)) $(numVideos).
+            $(Snips.langText(:diy))""")
+        return true
+
+    elseif numVideos == 1
+        matchedVideo = matchedVideos[1]
+        Snips.publishEndSession(
+            """$(Snips.langText(:i_play)) $(matchedVideo[:title])""")
+        kodiPlayMovie(matchedVideo)
+        return false
+    end
+
+
+    Snips.publishSay(:error_name)
+    Snips.publishEndSession(:diy)
+    return true
+end

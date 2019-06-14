@@ -4,7 +4,7 @@
   "params":
   {
     "window" : "videos",
-    "parameters" : ["\"smb://nas.home.ado/OTR/\""]
+    "parameters" : ["smb://nas.home.ado/OTR/"]
   },
   "id": 1
 }

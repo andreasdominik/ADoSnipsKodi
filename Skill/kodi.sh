@@ -77,6 +77,10 @@ case "$CMD" in
   openTVShowWindow)
     cp "${TEMPLATES}/windowopentvshows.json" $JSON
     ;;
+  openPictureWindow)
+    TEMPLATE="${TEMPLATES}/windowopenpictures.json"
+    cat $TEMPLATE | sed "s+PICTURES_PATH+$PARAM+g" > $JSON
+    ;;
   openTVShowWindowName)
     TEMPLATE="${TEMPLATES}/windowopentvshowname.json"
     cat $TEMPLATE | sed "s/TV_SHOW_ID/$PARAM/g" > $JSON

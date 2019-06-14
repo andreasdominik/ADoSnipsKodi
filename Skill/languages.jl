@@ -21,6 +21,8 @@ Snips.addText("de", :dunno, "Ich habe nicht verstanden was ich tun soll!")
 Snips.addText("de", :error_kodiCmd, "Ich kann den Kodi Befehl nicht ausführen.")
 Snips.addText("de", :error_name, "Ich konnte leider nicht verstehen, welchen Film ich zeigen soll!")
 Snips.addText("de", :error_on, "Ich kann leider Kodi nicht einchalten!")
+Snips.addText("de", :which_pictures, """Ich habe nicht verstanden,
+        welche Fotos ich zeigen soll. Ich öffne die Datenbank!""")
 
 
 Snips.addText("en", :noip, "I am not able to find the IP address of kodi in config.ini")

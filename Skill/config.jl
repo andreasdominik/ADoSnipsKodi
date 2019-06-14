@@ -26,6 +26,8 @@ const SLOT_DEVICE = "device"
 const SLOT_ON_OFF = "on_or_off"
 
 const SLOT_MOVIENAME = "movieName"
+const SLOT_YEAR = "year"
+const SLOt_KEYWORDS = "keyword"
 
 # name of entry in config.ini:
 #
@@ -33,7 +35,8 @@ const INI_IP = "ip"
 const INI_PORT = "port"
 const INI_TV = "tv"
 const INI_GPIO="gpio"
-const INI_SHARE="share"
+const INI_SHARE="recordings"
+const INI_PICTURES="pictures"
 
 
 #
