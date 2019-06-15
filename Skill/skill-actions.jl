@@ -242,7 +242,9 @@ function playSlideshowAction(topic, payload)
         kodiWindowPictures(Snips.getConfig(INI_PICTURES))
         return true
     end
-    println(">>> Picture Keywords: $year $keywords")
+    year != nothing && println(">>> Picture Keywords: $year $keywords")
+    year == nothing && println(">>> Picture Keywords: $keywords")
+
 
     # extract keywords from dirs with photos:
     #
@@ -257,8 +259,8 @@ function playSlideshowAction(topic, payload)
     if length(matched) == 1
         show = matched[1]
         Snips.publishEndSession("""Ich öffne die Diashow von $(show[:year])
-                $(join(show[:keywords], " ")))"""
-        kodiPlayPictures(show[:file])
+                $(join(show[:keywords], " "))""")
+        kodiPlayPictures(show)
         return false
 
     # read up to 3 matches:

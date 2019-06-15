@@ -82,6 +82,7 @@ function matchSlideShows(slideShows, year, keywords)
         if match
             push!(matched, deepcopy(s))
         end
+    end
 
-        return matched
+    return matched
     end
