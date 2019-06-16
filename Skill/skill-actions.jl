@@ -92,6 +92,7 @@ function playVideoAction(topic, payload)
     if !Snips.isConfigValid(INI_IP) ||
        !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
        !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
+       !Snips.isConfigValid(INI_ON_MODE) ||
        !Snips.isConfigValid(INI_TV)
 
        Snips.publishEndSession(:noip)

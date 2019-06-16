@@ -10,7 +10,9 @@ function kodiOn()
 
     # kodi powers TV up and grabs the hdmi/AV input:
     #
-    Snips.setGPIO(Snips.getConfig(INI_GPIO), :on)
+    if Snips.getConfig(INI_ON_MODE) == "gpio"
+        Snips.setGPIO(Snips.getConfig(INI_GPIO), :on)
+    end
 
     # wait until ping is successful:
     #
