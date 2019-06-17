@@ -8,6 +8,11 @@ const JSON = "kodiresult.json"
 
 function kodiOn()
 
+    # do nothing, if already on:
+    #
+    if Snips.ping(Snips.getConfig(INI_IP))
+        return true
+    end
     # kodi powers TV up and grabs the hdmi/AV input:
     #
     if Snips.getConfig(INI_ON_MODE) == "gpio"
@@ -25,7 +30,7 @@ function kodiOn()
     if waitMax < 1
         return false
     else
-        sleep(5)
+        sleep(20)
         tvTVAV()
         return true
     end
