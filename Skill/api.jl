@@ -10,7 +10,7 @@ function kodiOn()
 
     # do nothing, if already on:
     #
-    if Snips.ping(Snips.getConfig(INI_IP))
+    if kodiIsOn()
         return true
     end
     # kodi powers TV up and grabs the hdmi/AV input:
@@ -39,11 +39,13 @@ end
 
 function kodiOff()
 
-     kodiCmd("shutdown")
-     sleep(2)
-     Snips.setGPIO(Snips.getConfig(INI_GPIO), :off)
+    if kodiIsOn()
+        kodiCmd("shutdown")
+        sleep(2)
+    end
+    Snips.setGPIO(Snips.getConfig(INI_GPIO), :off)
 
-     tvOff()
+    tvOff()
  end
 
 function tvTVAV()
@@ -90,12 +92,16 @@ end
 
 Return true if kodi result has OK printed in the first line
 """
-function kodiIsOn()
+function kodiIsOn(;mode = :ping)
 
-    if kodiCmd("getVolume", errorMsg = "")
-        return strip(read(`head -1 kodi.status`, String)) == "OK"
+    if mode == :ping
+        return Snips.ping(Snips.getConfig(INI_IP))
     else
-        return false
+        if kodiCmd("getVolume", errorMsg = "")
+            return strip(read(`head -1 kodi.status`, String)) == "OK"
+        else
+            return false
+        end
     end
 end
 
