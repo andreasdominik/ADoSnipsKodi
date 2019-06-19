@@ -98,7 +98,7 @@ function kodiIsOn(;mode = :ping)
         return Snips.ping(Snips.getConfig(INI_IP))
     else
         if kodiCmd("getVolume", errorMsg = "")
-            return strip(read(`head -1 kodi.status`, String)) == "OK"
+            return checkKodiStatus()
         else
             return false
         end
@@ -106,22 +106,59 @@ function kodiIsOn(;mode = :ping)
 end
 
 
+"""
+try to ge a Dict() from KODI.
+    item is one of:
+    :tvshows, :movies, :recordings, :pictures, :episodes
+"""
+function kodiGetList(item::Symbol; arg = nothing)
+
+    # find kodi.sh command:
+    #
+    if item == :tvshows
+        cmd = "getTVshows"
+    elseif item == :movies
+        cmd = "getMovies"
+    elseif item == :recordings
+        cmd = "getRecordings"
+        item = :files
+    elseif item == :pictures
+        cmd = "getPictureFiles"
+        item = :files
+    elseif item == :episodes
+        cmd = "getEpisodes"
+    end
+
+    # try every sec, max 30 times:
+    #
+    i = 30
+    success = false
+    items = []
+    while !success && i > 0
+        if arg == nothing
+            success = kodiCmd(cmd)
+        else
+            success = kodiCmd(cmd, arg)
+        end
+        i -= 1
+        sleep(1)
+    end
+    if success
+        items = parseKodiResult(item)
+    end
+    return items
+end
+
+
+
 function kodiGetTVshows()
 
-    tvShows = []
-    if kodiCmd("getTVshows")
-        tvShows = parseKodiResult(:tvshows)
-    end
-    return tvShows
+    return kodiGetList(:tvshows)
 end
 
 function kodiGetMovies()
 
-    movies = []
-    if kodiCmd("getMovies")
-        movies = parseKodiResult(:movies)
-    end
-    return movies
+    return kodiGetList(:movies)
 end
 
 
@@ -154,11 +191,33 @@ Return a Dict() with episodes of a tv show from KODI.
 """
 function kodiGetEpisodes(tvShow)
 
-    episodes = Dict()
-    if kodiCmd("getEpisodes", tvShow[:tvshowid])
-        episodes = parseKodiResult(:episodes)
-    end
-    return episodes
+    return kodiGetList(:episodes, arg = tvShow[:tvshowid])
+end
+
+"""
+getKodiOTRFiles(share)
+
+Return a Dict() with files
+and fields: :file (=path), :label (=filename)
+* if error, an empty Dict() is returned
+"""
+function getKodiOTRFiles(path)
+
+    return kodiGetList(:recordings, arg = path)
+end
+
+
+"""
+Return the directory of "path" as list of Dicts.
+Each dict has the fields:
+* file - path/name
+* filetype - e.g. directory
+* label - file name
+* type
+"""
+function kodiGetPictureFiles(path)
+
+    return kodiGetList(:pictures, arg = path)
 end
 
 
@@ -189,47 +248,13 @@ function kodiWindowPictures(path)
 end
 #
 
-"""
-getKodiOTRFiles(share)
-
-Return a Dict() with files
-and fields: :file (=path), :label (=filename)
-* if error, an empty Dict() is returned
-"""
-function getKodiOTRFiles(share)
-
-    files = Dict()
-    if kodiCmd("getRecordings", share)
-        recordings = parseKodiResult(:files)
-    end
-    return recordings
-end
-
-
-"""
-Return the directory of "path" as list of Dicts.
-Each dict has the fields:
-* file - path/name
-* filetype - e.g. directory
-* label - file name
-* type
-"""
-function kodiGetPictureFiles(path)
-
-    files = Dict()
-    if kodiCmd("getPictureFiles", path)
-        files = parseKodiResult(:files)
-    end
-    return files
-end
-
 
 #
 # low-level:
 #
 #
 """
-    runKodiCmd(cmd, args...)
+    kodiCmd(cmd, args...)
 
 Send a Command to Kodi (with optional args).
 """
@@ -239,12 +264,25 @@ function kodiCmd(cmd, args...; errorMsg = :error_kodicmd)
     port = Snips.getConfig(INI_PORT)
 
     curl = `$CURL $ip $port $TEMPLATES $cmd $args`
-    println("Command: $cmd")
-    return  Snips.tryrun(curl, errorMsg = errorMsg)
+    Snips.printDebug("KODI command: $cmd")
+
+    if !Snips.tryrun(curl, errorMsg = errorMsg)
+        return false
+    else
+        return checkKodiStatus()
+    end
 end
 
 
 
+"""
+check, if the call to kodi.sh was successful
+by reading the file kodi.status
+"""
+function checkKodiStatus()
+
+    return occursin("OK", strip(read(`head -1 kodi.status`, String)))
+end
 
 
 #

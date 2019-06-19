@@ -107,8 +107,11 @@ case "$CMD" in
     ;;
 esac
 
-cat $JSON
+echo "Empty" >> kodi.status
+echo "" >> kodi.status
+echo "KODI did NOT answer to REST interface at $(date)"  >> kodi.status
 
+cat $JSON
 curl ${IP}:${PORT}/jsonrpc --data @${JSON} \
      --header 'content-type: application/json;' \
      -o kodiresult.json
@@ -120,12 +123,13 @@ RESULT=$?
 if [[ $RESULT -eq 0 ]] ; then
   echo "OK"                                         > kodi.status
   echo ""                                          >> kodi.status
-  echo "KODI answered to REST interface at $date"  >> kodi.status
+  echo "KODI answered to REST interface at $(date)"  >> kodi.status
 else
   echo "Problem"                                    > kodi.status
   echo ""                                          >> kodi.status
-  echo "KODI did NOT answer to REST interface at $date"  >> kodi.status
+  echo "cURL finished with a non-zero error at $(date)"  >> kodi.status
 fi
 
+cat kodi.status
 exit 0
 # eof.

@@ -225,11 +225,9 @@ function playSlideshowAction(topic, payload)
        return true
     end
 
-    if !Snips.ping(Snips.getConfig(INI_IP))
-        if !kodiOn()
-            Snips.publishEndSession(:error_on)
-            return true
-        end
+    if !kodiOn()
+        Snips.publishEndSession(:error_on)
+        return true
     end
 
     # if no keywords, just open pictures:
@@ -243,8 +241,8 @@ function playSlideshowAction(topic, payload)
         kodiWindowPictures(Snips.getConfig(INI_PICTURES))
         return true
     end
-    year != nothing && println(">>> Picture Keywords: $year $keywords")
-    year == nothing && println(">>> Picture Keywords: $keywords")
+    year != nothing && Snips.printDebug(">>> Picture Year: $year ")
+    keywords != nothing && Snips.printDebug(">>> Picture Keywords: $keywords")
 
 
     # extract keywords from dirs with photos:
@@ -254,10 +252,18 @@ function playSlideshowAction(topic, payload)
     # find matches in slideshows:
     #
     matched = matchSlideShows(slideShows, year, keywords)
+    Snips.printDebug(matched)
+
+    # nothing found:
+    #
+    if length(matched) < 1
+        Snips.publishEndSession(:which_pictures)
+        kodiWindowPictures(Snips.getConfig(INI_PICTURES))
+        return false
 
     # play, if only 1 match:
     #
-    if length(matched) == 1
+    elseif length(matched) == 1
         show = matched[1]
         Snips.publishEndSession("""Ich öffne die Diashow von $(show[:year])
                 $(join(show[:keywords], " "))""")
@@ -266,9 +272,10 @@ function playSlideshowAction(topic, payload)
 
     # read up to 3 matches:
     #
-    elseif length(matches) < 4
-        Snips.publishSay("$(length(matches)) $(Snips.langText(:fits)):")
-        for m in matches
+    elseif length(matched) < 4
+        Snips.publishSay("""$(length(matched)) $(Snips.langText(:slideshows))
+                          $(Snips.langText(:fits)):""")
+        for m in matched
             Snips.publishSay("$(m[:year]) $(join(m[:keywords], " "))")
         end
         Snips.publishEndSession(:be_precise)
@@ -277,7 +284,7 @@ function playSlideshowAction(topic, payload)
     # if many matches, just open Pictures in Kodi:
     #
     else
-        Snips.publishEndSession("""$(length(matches)) $(Snips.langText(:fits)).
+        Snips.publishEndSession("""$(length(matched)) $(Snips.langText(:fits)).
                 $(Snips.langText(:diy))""")
         kodiWindowPictures(Snips.getConfig(INI_PICTURES))
         return false
