@@ -71,9 +71,10 @@ function matchSlideShows(slideShows, year, keywords)
             match = false
         end
 
+        ##TODO: uppercase!
         if keywords != nothing
             for kw in keywords
-                if !(kw in s[:keywords])
+                if !(lowercase(kw) in lowercase.(s[:keywords]))
                     match = false
                 end
             end

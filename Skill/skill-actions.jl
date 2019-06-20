@@ -252,7 +252,7 @@ function playSlideshowAction(topic, payload)
     # find matches in slideshows:
     #
     matched = matchSlideShows(slideShows, year, keywords)
-    Snips.printDebug(matched)
+    Snips.printDebug("Matched Slideshows: $matched")
 
     # nothing found:
     #
