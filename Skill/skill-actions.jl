@@ -86,6 +86,7 @@ function playVideoAction(topic, payload)
     # end
 
     println(">>> Movie Name: $videoName")
+    Snips.publishSay("$(Snips.langText(:i_search_for)) $videoName")
 
     # check ini vals:
     #

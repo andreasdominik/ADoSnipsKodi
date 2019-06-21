@@ -13,6 +13,8 @@ function kodiOn()
     if kodiIsOn()
         return true
     end
+    Snips.publishSay(:switchon)
+    
     # kodi powers TV up and grabs the hdmi/AV input:
     #
     if Snips.getConfig(INI_ON_MODE) == "gpio"
