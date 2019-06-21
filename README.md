@@ -99,7 +99,7 @@ of controlling it from Snips. Therefore the skill might work with any tv set.
 ##### on_mode=gpio
 This line is necessary even though only power on via GPIO is implemented yet.
 
-#### gpio=21
+##### gpio=21
 Number of the GPIO to switch on or off the Kodi device.
 
 
