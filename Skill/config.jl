@@ -38,6 +38,7 @@ const INI_ON_MODE = "on_mode"  # one of "gpio" or "none"
 const INI_GPIO = "gpio"
 const INI_SHARE = "recordings"
 const INI_PICTURES = "pictures"
+const INI_WAIT = "boot_wait"
 
 
 #

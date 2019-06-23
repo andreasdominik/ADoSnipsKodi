@@ -1,5 +1,4 @@
 
-
 """
     switchOnOffActions(topic, payload)
 
@@ -74,6 +73,7 @@ function playVideoAction(topic, payload)
     #
     videoName = Snips.extractSlotValue(payload, SLOT_MOVIENAME)
     if !Snips.isValidOrEnd(videoName, errorMsg = :error_name)
+        Snips.publishSay(:switchon)
         kodiOn()
         return true
     end
