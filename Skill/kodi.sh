@@ -27,7 +27,7 @@ case "$CMD" in
     ;;
   launch)
     nohup ${DIR}/runKodi.sh &
-
+    ;;
   getVolume)
   cp "${TEMPLATES}/getvolume.json" $JSON
   ;;

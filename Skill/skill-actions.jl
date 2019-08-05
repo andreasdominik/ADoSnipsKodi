@@ -32,18 +32,18 @@ function switchOnOffActions(topic, payload)
     end
 
     printDebug(">>> $onOrOff, $device")
+    # check ini vals:
+    #
+    if !Snips.isConfigValid(INI_IP) ||
+        !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
+        !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
+        !Snips.isConfigValid(INI_TV)
+
+        Snips.publishEndSession(:noip)
+        return true
+    end
 
     if Snips.getConfig(INI_ON_MODE) == "gpio"
-        # check ini vals:
-        #
-        if !Snips.isConfigValid(INI_IP) ||
-           !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
-           !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
-           !Snips.isConfigValid(INI_TV)
-
-           Snips.publishEndSession(:noip)
-           return true
-        end
 
         if onOrOff == "OFF"
             Snips.publishEndSession(:switchoff)
