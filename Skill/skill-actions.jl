@@ -31,25 +31,40 @@ function switchOnOffActions(topic, payload)
         return true
     end
 
-    println(">>> $onOrOff, $device")
+    printDebug(">>> $onOrOff, $device")
 
-    # check ini vals:
-    #
-    if !Snips.isConfigValid(INI_IP) ||
-       !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
-       !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
-       !Snips.isConfigValid(INI_TV)
+    if Snips.getConfig(INI_ON_MODE) == "gpio"
+        # check ini vals:
+        #
+        if !Snips.isConfigValid(INI_IP) ||
+           !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
+           !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
+           !Snips.isConfigValid(INI_TV)
 
-       Snips.publishEndSession(:noip)
-       return true
-    end
+           Snips.publishEndSession(:noip)
+           return true
+        end
 
-    if onOrOff == "OFF"
-        Snips.publishEndSession(:switchoff)
-        kodiOff()
+        if onOrOff == "OFF"
+            Snips.publishEndSession(:switchoff)
+            kodiOff()
+        else
+            Snips.publishEndSession(:switchon)
+            kodiOn()
+        end
+
+    elseif Snips.getConfig(INI_ON_MODE) == "local"
+
+        if onOrOff == "OFF"
+            Snips.publishEndSession(:switchoff)
+            kodiExit()
+        else
+            Snips.publishEndSession(:switchon)
+            kodiLaunch()
+        end
+
     else
-        Snips.publishEndSession(:switchon)
-        kodiOn()
+        Snips.publishEndSession(:unknown_onmode)
     end
     return false
 end

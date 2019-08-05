@@ -25,6 +25,7 @@ Snips.addText("de", :dunno, "Ich habe nicht verstanden was ich tun soll!")
 Snips.addText("de", :error_kodiCmd, "Ich kann den Kodi Befehl nicht ausführen.")
 Snips.addText("de", :error_name, "Ich konnte leider nicht verstehen, welchen Film ich zeigen soll!")
 Snips.addText("de", :error_on, "Ich kann leider Kodi nicht einschalten!")
+Snips.addText("de", :error_on_mode, "Ich weiß nicht wie ich Kodi einschalten soll!")
 
 Snips.addText("de", :which_pictures, """Ich habe nicht verstanden,
         welche Fotos ich zeigen soll. Ich öffne die Datenbank!""")
@@ -60,6 +61,7 @@ Snips.addText("en", :dunno, "I don't know what to do!")
 Snips.addText("en", :error_kodiCmd, "I cannot execute the Kodi command.")
 Snips.addText("en", :error_name, "Unfortunately, I could not understand which movie I should show!")
 Snips.addText("en", :error_on, "I can not turn Kodi on!")
+Snips.addText("en", :error_on_mode, "I don't know how to switch on Kodi")
 
 Snips.addText("en", :which_pictures, """I did not understand,
         which photos I should show. I open the database!""")

@@ -6,6 +6,7 @@ IP=$1
 PORT=$2
 TEMPLATES=$3
 CMD=$4
+DIR="$(dirname $0)"
 
 if [[ $# -gt 4 ]] ; then
   PARAM=$5
@@ -21,6 +22,12 @@ case "$CMD" in
   shutdown)
     cp "${TEMPLATES}/shutdown.json" $JSON
     ;;
+  exit)
+    cp "${TEMPLATES}/exit.json" $JSON
+    ;;
+  launch)
+    nohup ${DIR}/runKodi.sh &
+
   getVolume)
   cp "${TEMPLATES}/getvolume.json" $JSON
   ;;

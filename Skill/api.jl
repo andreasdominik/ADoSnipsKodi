@@ -43,6 +43,19 @@ function kodiOn()
 end
 
 
+function kodiLaunch()
+
+    if kodiIsOn( mode = :tryApiCall)
+        return true
+    end
+
+    kodiCmd("launch", errorMsg = :error_kodicmd)
+    sleep(1)
+    tvSusi()
+end
+
+
+
 function kodiOff()
 
     if kodiIsOn()
@@ -54,6 +67,18 @@ function kodiOff()
     tvOff()
  end
 
+
+function kodiExit()
+
+    if kodiIsOn( mode = :tryApiCall)
+        kodiCmd("exit")
+    end
+
+    tvOff()
+end
+
+
+
 function tvTVAV()
 
     trigger = Dict(:room => Snips.getSiteId(),
@@ -64,6 +89,7 @@ function tvTVAV()
 
     Snips.publishSystemTrigger("ADoSnipsTVViera", trigger)
 end
+
 function tvOn()
 
     trigger = Dict(:room => Snips.getSiteId(),
@@ -75,7 +101,16 @@ function tvOn()
     Snips.publishSystemTrigger("ADoSnipsTVViera", trigger)
 end
 
+function tvSusi()
 
+    trigger = Dict(:room => Snips.getSiteId(),
+                   :device => Snips.getConfig(INI_TV),
+                   :commands => ["susi"],
+                   :delay => 0.5
+                   )
+
+    Snips.publishSystemTrigger("ADoSnipsTVViera", trigger)
+end
 
 function tvOff()
 
