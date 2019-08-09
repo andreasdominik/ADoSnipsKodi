@@ -31,7 +31,7 @@ function switchOnOffActions(topic, payload)
         return true
     end
 
-    printDebug(">>> $onOrOff, $device")
+    Snips.printDebug(">>> $onOrOff, $device")
     # check ini vals:
     #
     if !Snips.isConfigValid(INI_IP) ||
