@@ -43,29 +43,18 @@ function switchOnOffActions(topic, payload)
         return true
     end
 
-    if Snips.getConfig(INI_ON_MODE) == "gpio"
 
-        if onOrOff == "OFF"
-            Snips.publishEndSession(:switchoff)
-            kodiOff()
-        else
-            Snips.publishEndSession(:switchon)
-            kodiOn()
-        end
+    if onOrOff == "ON"
+        Snips.publishEndSession(:switchon)
+        kodiOn(Snips.getConfig(INI_ON_MODE))
 
-    elseif Snips.getConfig(INI_ON_MODE) == "local"
-
-        if onOrOff == "OFF"
-            Snips.publishEndSession(:switchoff)
-            kodiExit()
-        else
-            Snips.publishEndSession(:switchon)
-            kodiLaunch()
-        end
-
+    elseif onOrOff =="OFF"
+        Snips.publishEndSession(:switchoff)
+        kodiOff(Snips.getConfig(INI_ON_MODE))
     else
-        Snips.publishEndSession(:unknown_onmode)
+        Snips.publishEndSession(:error_on)
     end
+
     return false
 end
 
@@ -115,12 +104,10 @@ function playVideoAction(topic, payload)
        return true
     end
 
-     if !Snips.ping(Snips.getConfig(INI_IP))
-         if !kodiOn()
-             Snips.publishEndSession(:error_on)
+    if !kodiOn()
+        Snips.publishEndSession(:error_on)
              return true
-         end
-     end
+    end
 
     matchedVideo = nothing
     # 1st: check tv shows in DB

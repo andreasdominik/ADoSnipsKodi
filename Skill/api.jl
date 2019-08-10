@@ -6,25 +6,52 @@ const CURL = "/$(Snips.getAppDir())/Skill/kodi.sh"
 const TEMPLATES = "$(Snips.getAppDir())/Skill/Templates"
 const JSON = "kodiresult.json"
 
-function kodiOn()
+function kodiOn(mode)
+
+    if mode == "gpio"
+        return kodiGPIOOn()
+
+    elseif mode == "local"
+        return kodiLaunch()
+
+    else
+        return false
+    end
+end
+
+function kodiOff(mode)
+
+    if mode == "gpio"
+        kodiGPIOOff()
+
+    elseif mode == "local"
+        kodiExit()
+    end
+end
+
+
+
+"""
+Switch on kodi if it runs on a separate device.
+"""
+function kodiGPIOOn()
 
     # do nothing, if already on:
     #
     if kodiIsOn()
+        Snips.printDebug("Kodi is already on")
         return true
     end
 
     # kodi powers TV up and grabs the hdmi/AV input:
     #
-    if Snips.getConfig(INI_ON_MODE) == "gpio"
-        Snips.setGPIO(Snips.getConfig(INI_GPIO), :on)
-    end
+    Snips.setGPIO(Snips.getConfig(INI_GPIO), :on)
 
-    # wait until ping is successful:
+    # wait until kodiIsOn() is true:
     #
     waitMax = 60
-    while (! Snips.ping(Snips.getConfig(INI_IP))) && (waitMax > 0)
-        sleep(2)
+    while (! kodiIsOn()) && (waitMax > 0)
+        sleep(1)
         waitMax -= 1
     end
 
@@ -45,18 +72,17 @@ end
 
 function kodiLaunch()
 
-    if kodiIsOn( mode = :tryApiCall)
-        return true
-    end
-
-    kodiCmd("launch", errorMsg = :error_kodicmd)
-    sleep(1)
     tvSusi()
+    sleep(2)
+    if !kodiIsOn( mode = :tryApiCall)
+        kodiCmd("launch", errorMsg = :error_kodicmd)
+    end
+    return true
 end
 
 
 
-function kodiOff()
+function kodiGPIOOff()
 
     if kodiIsOn()
         kodiCmd("shutdown")
@@ -170,7 +196,7 @@ function kodiGetList(item::Symbol; arg = nothing)
         cmd = "getEpisodes"
     end
 
-    # try every sec, max 30 times:
+    # try every sec, max 10 times:
     #
     i = 30
     success = false
@@ -305,7 +331,7 @@ function kodiCmd(cmd, args...; errorMsg = :error_kodicmd)
     port = Snips.getConfig(INI_PORT)
 
     curl = `$CURL $ip $port $TEMPLATES $cmd $args`
-    Snips.printDebug("KODI command: $cmd")
+    Snips.printDebug("KODI command: $curl")
 
     if !Snips.tryrun(curl, errorMsg = errorMsg)
         return false
