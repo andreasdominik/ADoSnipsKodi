@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xv
 #
 # curl JSON to KODI for API remote control
 #
@@ -115,19 +115,17 @@ case "$CMD" in
     ;;
 esac
 
-echo "Empty" >> kodi.status
-echo "" >> kodi.status
-echo "KODI did NOT answer to REST interface at $(date)"  >> kodi.status
-
 cat $JSON
+rm kodi.result kodiresult.json
+
 curl ${IP}:${PORT}/jsonrpc --data @${JSON} \
      --header 'content-type: application/json;' \
      -o kodiresult.json
 
-cat kodiresult.json
+RESULT=$?
+echo "KODIresult: $(cat kodiresult.json)"
 
 # evaluate curl result:
-RESULT=$?
 if [[ $RESULT -eq 0 ]] ; then
   echo "OK"                                         > kodi.status
   echo ""                                          >> kodi.status
