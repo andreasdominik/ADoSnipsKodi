@@ -6,16 +6,16 @@ const CURL = "/$(Snips.getAppDir())/Skill/kodi.sh"
 const TEMPLATES = "$(Snips.getAppDir())/Skill/Templates"
 const JSON = "kodiresult.json"
 
-function kodiOn(mode)
+function kodiOn(mode; wait = true)
 
     if mode == "gpio"
-        return kodiGPIOOn()
-
+        kodiGPIOOn()
+        wait && wait4kodi()
     elseif mode == "local"
-        return kodiLaunch()
-
+        kodiLaunch()
+        wait && wait4kodi()
     else
-        return false
+        Snips.publishSay(:error_on_mode)
     end
 end
 
@@ -29,6 +29,30 @@ function kodiOff(mode)
     end
 end
 
+
+"""
+wait until kodi is up
+"""
+function wait4kodi()
+
+    waitMax = 30
+    while (! kodiIsOn(mode= :tryApiCall)) && (waitMax > 0)
+        sleep(1)
+        waitMax -= 1
+    end
+
+    if waitMax < 1
+        return false
+    else
+        if Snips.isConfigValid(INI_WAIT, regex = r"^[0-9]+$") &&
+            (st = Base.tryparse(Int, Snips.getConfig(INI_WAIT))) != nothing
+            sleep(st)
+        else
+            sleep(20)
+        end
+    end
+    return true
+end
 
 
 """
@@ -46,27 +70,9 @@ function kodiGPIOOn()
     # kodi powers TV up and grabs the hdmi/AV input:
     #
     Snips.setGPIO(Snips.getConfig(INI_GPIO), :on)
-
-    # wait until kodiIsOn() is true:
-    #
-    waitMax = 60
-    while (! kodiIsOn()) && (waitMax > 0)
-        sleep(1)
-        waitMax -= 1
-    end
-
-    if waitMax < 1
-        return false
-    else
-        if Snips.isConfigValid(INI_WAIT, regex = r"^[0-9]+$") &&
-            (st = Base.tryparse(Int, Snips.getConfig(INI_WAIT))) != nothing
-            sleep(st)
-        else
-            sleep(20)
-        end
-        tvTVAV()
-        return true
-    end
+    wait4kodi()
+    tvTVAV()
+    return true
 end
 
 
