@@ -111,6 +111,8 @@ end
 
 
 
+
+
 function tvTVAV()
 
     trigger = Dict(:room => Snips.getSiteId(),
@@ -134,7 +136,7 @@ function tvOn()
 end
 
 function tvSusi()
-
+    
     trigger = Dict(:room => Snips.getSiteId(),
                    :device => Snips.getConfig(INI_TV),
                    :commands => ["susi"],
@@ -155,6 +157,17 @@ function tvOff()
     Snips.publishSystemTrigger("ADoSnipsTVViera", trigger)
 end
 
+function startListen()
+
+    trigger = Dict( :command => "start")
+    Snips.publishSystemTrigger("ADoSnipsListen", trigger)
+end
+
+function stopListen()
+
+    trigger = Dict( :command => "stop")
+    Snips.publishSystemTrigger("ADoSnipsListen", trigger)
+end
 
 #
 # KODI commands:

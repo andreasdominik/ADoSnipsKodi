@@ -51,6 +51,7 @@ function switchOnOffActions(topic, payload)
     elseif onOrOff =="OFF"
         Snips.publishEndSession(:switchoff)
         kodiOff(Snips.getConfig(INI_ON_MODE))
+        startListen()
     else
         Snips.publishEndSession(:error_on)
     end
@@ -121,6 +122,9 @@ function playVideoAction(topic, payload)
     end
 
     if matchedVideo != nothing
+        # disable intents:
+        #
+        stopListen()
         Snips.publishEndSession(
             """$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])
                $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der
@@ -153,6 +157,7 @@ function playVideoAction(topic, payload)
         end
 
         if matchedVideo != nothing
+            stopListen()
             Snips.publishEndSession(
                 """$(Snips.langText(:i_play_new_otr)) $(matchedVideo[:title])""")
             kodiPlayFile(matchedVideo)
@@ -175,6 +180,7 @@ function playVideoAction(topic, payload)
 
     elseif numVideos == 1
         matchedVideo = matchedVideos[1]
+        stopListen()
         Snips.publishEndSession(
             """$(Snips.langText(:i_play)) $(matchedVideo[:title])""")
         kodiPlayMovie(matchedVideo)
