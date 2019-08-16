@@ -1,6 +1,6 @@
 # ADoSnipsKodi
 
-Snips kill to control a kodi/libreelec device.
+Snips.AI kill to control a kodi/libreelec device.
 
 This is a skill for the SnipsHermesQnD framework to control an kodi/libreelec device.
 
@@ -23,6 +23,7 @@ If you are ready for the step forward, start here: https://julialang.org/
 ## Actions
 The skill includes intents (in German) to
 - power-on/power-off a libreelec device via a GPIO-controlled switch
+  or run kodi on the local machine
 - play a movie (from the Kodi movie library)
 - play a tv-show (from the Kodi tv-show library)
 - play a recording (from a directory with recordings)
