@@ -139,8 +139,7 @@ function playVideoAction(topic, payload)
     #
     if Snips.isConfigValid(INI_SHARE)
 
-        Snips.publishSay("""$(Snips.langText(:i_search_rec)) $videoName.
-                $(Snips.langText(:be_patient))""", wait = false)
+        Snips.publishSay("""$(Snips.langText(:i_search_rec)) $videoName.""", wait = false)
 
         recs = kodiGetRrecordings(Snips.getConfig(INI_SHARE))
         episodes = extractOTR(videoName, recs)
