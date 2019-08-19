@@ -53,7 +53,7 @@ function parsePhotoDir(name)
     end
 
     if year != nothing && keywords != nothing
-        println("PhotoDir: $name; year: $year; kw: $keywords")
+        Snips.printDebug("PhotoDir: $name; year: $year; kw: $keywords")
     end
     return (year, keywords)
 end

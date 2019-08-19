@@ -159,9 +159,6 @@ function oldestOTR(otrs)
                otr[:date] < f[:date]
             f = otr
         end
-
-        println("$f")
-        println("")
     end
 
     if length(f) < 1 || f[:season] == "99"

@@ -8,7 +8,7 @@ function switchOnOffActions(topic, payload)
 
     # log:
     #
-    println("[ADoSnipsKodi]: action switchOnOffActions() started.")
+    Snips.printLog("action switchOnOffActions() started.")
 
     # ignore, if not responsible (other device):
     #
@@ -72,7 +72,7 @@ function playVideoAction(topic, payload)
 
     # log:
     #
-    println("[ADoSnipsKodi]: action playVideoAction() started.")
+    Snips.printLog("action playVideoAction() started.")
 
     # check ini vals:
     #
@@ -143,7 +143,7 @@ function playVideoAction(topic, payload)
 
         recs = kodiGetRrecordings(Snips.getConfig(INI_SHARE))
         episodes = extractOTR(videoName, recs)
-        println(episodes)
+        Snips.printDebug(episodes)
         if length(episodes) > 0
             matchedVideo = oldestOTR(episodes)
 
@@ -207,7 +207,7 @@ function playSlideshowAction(topic, payload)
 
     # log:
     #
-    println("[ADoSnipsKodi]: action playSlideshowAction() started.")
+    Snips.printLog("action playSlideshowAction() started.")
 
 
 
