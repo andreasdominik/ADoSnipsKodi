@@ -93,7 +93,10 @@ function playVideoAction(topic, payload)
     Snips.printDebug("Movie Name: $videoName")
     Snips.publishSay("$(Snips.langText(:i_search_for)) $videoName")
 
-    Snips.publishSay(:switchon)
+    if !kodiIsOn( mode = :tryApiCall)
+        Snips.publishSay(:switchon, wait = false)
+    end
+
     kodiOn(Snips.getConfig(INI_ON_MODE))
     if !kodiIsOn(mode = :tryApiCall)
         Snips.publishEndSession(:error_on)
