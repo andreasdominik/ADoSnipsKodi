@@ -18,6 +18,7 @@ Snips = SnipsHermesQnD
 
 
 Snips.readConfig("$APP_DIR")
+Snips.readConfig("$FRAMEWORK_DIR")
 Snips.setLanguage(Snips.getConfig(:language))
 Snips.setAppDir(APP_DIR)
 Snips.setAppName(APP_NAME)
