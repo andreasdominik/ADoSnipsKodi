@@ -53,8 +53,8 @@ const INI_WAIT = "boot_wait"
 #
 if LANG == "de"
     Snips.registerIntentAction("ADoSnipsOnOffDE", switchOnOffActions)
-    Snips.registerIntentAction("ADoSnipsPlayVideoDE", playVideoAction)
-    Snips.registerIntentAction("ADoSnipsPlayPicturesDE", playSlideshowAction)
+    Snips.registerIntentAction("playVideoDE", playVideoAction)
+    Snips.registerIntentAction("playPicturesDE", playSlideshowAction)
 else LANG == "en"
     Snips.registerIntentAction("ADoSnipsOnOffEN", switchOnOffActions)
 end
