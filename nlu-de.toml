@@ -1,0 +1,56 @@
+# Intent definition for Calendar skill
+#
+#  (c) A. Dominik, 2020
+#
+skill = "ADoSnipsKodiDE"
+developer = "andreasdominik"
+
+
+[inventory]
+intents = ["playPicturesDE", "playVideosDE"]
+slots = ["year", "keyword", "size", "photos", "event"]
+
+
+# define slots:
+# Types: "Any", "ListOfValues", "Time", "Duration", "Currency", "Number", "Ordinal"
+#
+[year]
+slot_type = "Time"
+
+# keywords for slide shows:
+#
+[keyword]
+slot_type = "Any"
+
+        [keyword.synonyms]
+        "Urlaub" = ["Urlaub", "Skiurlaub", "Reise", "Ferien", "Urlaubsbilder"]
+        "Fest" = ["Fest", "Familienfest", "Geburtstag", "Feier", "Familienfeier", "Geburtstagsfeier", "Geburtstagsfest"]
+        "Winter" = ["Winter", "Skifahren"]
+        "Sommer" = ["Sommer", "Sommerferien"]
+
+[size]
+slot_type = "ListOfValues"
+
+        [size.synonyms]
+        "kurz" = ["kurze", "klein", "kleine", "Auswahl", "die Auswahl"]
+        "lang" = ["lange", "große", "groß", "ausführliche", "alle", "gesamte", "ganze"]
+
+[photos]
+slot_type = "ListOfValues"
+
+        [photos.synonyms]
+        "photos" = ["Bilder", "Dias", "Fotos", "Urlaubsbilder"]
+
+[event]
+slot_type = "Any"
+
+        [event.synonyms]
+
+
+# define phrases for intent recognition:
+# exact, regex, part
+#
+[playPicturesDE]
+picturesBrief = "partial: <<Bitte|>> zeige <<bitte|>> die <<photos>> <<vom|von|aus>> <<keyword>>"
+calendar2 = "partial: <<Bitte|>> nenne mir <<bitte|>> die Termine <<mode>>"
+calendarLazy = "ordered: Termine <<für|ich>> <<mode>>"
