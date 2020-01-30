@@ -8,7 +8,8 @@ developer = "andreasdominik"
 
 [inventory]
 intents = ["playPicturesDE", "playVideosDE"]
-slots = ["year", "keyword", "size", "photos", "event"]
+slots = ["movieName",
+         "year", "keyword", "keyword2", "size", "photos", "event", "season"]
 
 
 # define slots:
@@ -22,35 +23,64 @@ slot_type = "Time"
 [keyword]
 slot_type = "Any"
 
-        [keyword.synonyms]
-        "Urlaub" = ["Urlaub", "Skiurlaub", "Reise", "Ferien", "Urlaubsbilder"]
+[keyword2]
+slot_type = "Any"
+allow_empty = false
+
+[event]
+slot_type = "ListOfValues"
+
+        [event.synonyms]
+        "Urlaub" = ["Urlaub", "Reise", "Ferien", "Urlaubsbilder"]
         "Fest" = ["Fest", "Familienfest", "Geburtstag", "Feier", "Familienfeier", "Geburtstagsfeier", "Geburtstagsfest"]
-        "Winter" = ["Winter", "Skifahren"]
+
+[season]
+slot_type = "ListOfValues"
+
+        [season.synonyms]
+        "Winter" = ["Winter", "Skifahren", "Skiurlaub"]
         "Sommer" = ["Sommer", "Sommerferien"]
 
 [size]
 slot_type = "ListOfValues"
+allow_empty = true
 
         [size.synonyms]
         "kurz" = ["kurze", "klein", "kleine", "Auswahl", "die Auswahl"]
         "lang" = ["lange", "große", "groß", "ausführliche", "alle", "gesamte", "ganze"]
 
+
+# slot photos is not parsed by the skill; only defined to
+# match the list of values:
+#
 [photos]
 slot_type = "ListOfValues"
 
         [photos.synonyms]
-        "photos" = ["Bilder", "Dias", "Fotos", "Urlaubsbilder"]
+        "photos" = ["Bilder", "Dias", "Fotos",
+                    "Urlaubsbilder", "Urlaubsfotos"]
 
-[event]
+[movieName]
 slot_type = "Any"
 
-        [event.synonyms]
-
+        [movieName.synonyms]
+        "mash" = ["MASH", "M A S H", "mash 4077"]
+        "Doctor Who 2005" = ["Doctor Who 2005", "Doctor Who"]
 
 # define phrases for intent recognition:
 # exact, regex, part
 #
+[playVideoDE]
+movie_a = "partial: <<Bitte|>> <<zeige|spiele>> <<bitte|>> die nächste <<Folge|Episode>> <<von|>> <<movieName>>"
+movie_b = "partial: <<Bitte|>> <<zeige|spiele>> <<bitte|>> eine <<Folge|Episode>> <<von|>> <<movieName>>"
+
 [playPicturesDE]
-picturesBrief = "partial: <<Bitte|>> zeige <<bitte|>> die <<photos>> <<vom|von|aus>> <<keyword>>"
-calendar2 = "partial: <<Bitte|>> nenne mir <<bitte|>> die Termine <<mode>>"
-calendarLazy = "ordered: Termine <<für|ich>> <<mode>>"
+pictures_a = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<event>> im Jahr <<year>>"
+pictures_b = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<keyword>> <<keyword2>> <<event>>"
+pictures_c = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<keyword>> <<event>>"
+pictures_d = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<event>> <<auf|in>> <<keyword>> im Jahr <<year>>"
+pictures_e = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<event>> <<auf|in>> <<keyword>>"
+pictures_f = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<von|aus>> <<keyword>>"
+pictures_g = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|aus>> <<season>> <<year>>"
+
+[playVideosDE]
