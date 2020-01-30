@@ -236,7 +236,7 @@ function playSlideshowAction(topic, payload)
 
     # if no keywords, just open pictures:
     #
-    keywords = Snips.extractSlotValue(payload, SLOT_KEYWORDS, multiple = true)
+    keywords = extractKeywords(payload)
     year = Snips.extractSlotValue(payload, SLOT_YEAR)
     if  (year == nothing || year < 1950 || year > 2050) &&
         (keywords == nothing || length(keywords) < 1)

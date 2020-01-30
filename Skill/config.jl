@@ -26,8 +26,15 @@ const SLOT_DEVICE = "device"
 const SLOT_ON_OFF = "on_or_off"
 
 const SLOT_MOVIENAME = "movieName"
+
+# picture keywords:
+#
 const SLOT_YEAR = "year"
 const SLOT_KEYWORDS = "keyword"
+const SLOT_KEYWORDS2 = "keyword2"
+const SLOT_SIZE = "size"
+const SLOT_EVENT = "event"
+const SLOT_SEASON = "season"
 
 # name of entry in config.ini:
 #
