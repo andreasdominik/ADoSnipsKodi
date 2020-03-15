@@ -2,6 +2,12 @@
 
 Snips.AI kill to control a kodi/libreelec device.
 
+### Update:
+NLU (natural language understanding) definition files are added for
+(English and) German and make it possible to use the skill with
+Susi (Susi is no Snips) without Snips or the Snips console!
+
+
 This is a skill for the SnipsHermesQnD framework to control an kodi/libreelec device.
 
 Language is German but the app-code is written using the multi-language tools of the framework (with English already implemented) and can be adapted (within some minutes) to any language by adding the "sentences" and intents to the database in a new language.
@@ -114,3 +120,23 @@ The path to the directory can be any valid path specification for Kodi; i.e.
 ##### pictures=/storage/pictures
 Directory with the slide shows.
 See `recordings` for path details.
+
+# Installation
+
+For more details and installation of the framework look
+in the documentation of the
+[ADoSnipsQnD-framework](https://andreasdominik.github.io/ADoSnipsQnD/dev)
+and [Susi](https://github.com/andreasdominik/Susi).
+
+### Install skill for Susi
+* Change to the root skills directory (default `/opt/Susi/Skills`)
+* clone this repo
+* copy the 'config.ini.template' to 'config.ini' and
+  edit the file to configure your lights.
+
+```
+cd /opt/Susi/Skills
+git clone https://github.com/andreasdominik/ADoSnipsLights.git
+cd ADoSnipsLights
+cp config.ini.template config.ini
+```
