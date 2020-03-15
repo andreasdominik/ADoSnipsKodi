@@ -1,5 +1,5 @@
 [global]
-language=de
+# language=de
 [secret]
 ip=localhost
 port=8080

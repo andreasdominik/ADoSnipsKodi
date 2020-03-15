@@ -7,7 +7,7 @@ developer = "andreasdominik"
 
 
 [inventory]
-intents = ["playPicturesDE", "playVideosDE"]
+intents = ["playPictures", "playVideo"]
 slots = ["movieName",
          "year", "keyword", "keyword2", "size", "photos", "event", "season"]
 
@@ -46,8 +46,8 @@ slot_type = "ListOfValues"
 allow_empty = true
 
         [size.synonyms]
-        "kurz" = ["kurze", "klein", "kleine", "Auswahl", "die Auswahl"]
-        "lang" = ["lange", "große", "groß", "ausführliche", "alle", "gesamte", "ganze"]
+        "kurz" = ["kurze Version der", "klein", "kleine", "Auswahl der", "Kurzfassung der"]
+        "lang" = ["lange", "große", "groß", "ausführliche Version", "alle", "gesamte", "ganze"]
 
 
 # slot photos is not parsed by the skill; only defined to
@@ -65,16 +65,16 @@ slot_type = "Any"
 
         [movieName.synonyms]
         "mash" = ["MASH", "M A S H", "mash 4077"]
-        "Doctor Who 2005" = ["Doctor Who 2005", "Doctor Who"]
+        "Doctor Who 2005" = ["Doctor Who 2005", "Doctor Who", "Doktor Who"]
 
 # define phrases for intent recognition:
 # exact, regex, part
 #
-[playVideoDE]
-movie_a = "partial: <<Bitte|>> <<zeige|spiele>> <<bitte|>> die nächste <<Folge|Episode>> <<von|>> <<movieName>>"
-movie_b = "partial: <<Bitte|>> <<zeige|spiele>> <<bitte|>> eine <<Folge|Episode>> <<von|>> <<movieName>>"
+[playVideo]
+movie_a = "partial: <<Bitte|>> <<zeige|spiele>> <<>> <<bitte|>> die nächste <<Folge|Episode>> <<von|>> <<movieName>>"
+movie_b = "partial: <<Bitte|>> <<zeige|spiele>> <<>> <<bitte|>> eine <<Folge|Episode>> <<von|>> <<movieName>>"
 
-[playPicturesDE]
+[playPictures]
 pictures_a = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<event>> im Jahr <<year>>"
 pictures_b = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<keyword>> <<keyword2>> <<event>>"
 pictures_c = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<keyword>> <<event>>"
@@ -82,5 +82,3 @@ pictures_d = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> 
 pictures_e = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|von|aus>> <<event>> <<auf|in>> <<keyword>>"
 pictures_f = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<von|aus>> <<keyword>>"
 pictures_g = "partial: <<Bitte|>> zeige <<bitte|>> <<die|>> <<size>> <<photos>> <<vom|aus>> <<season>> <<year>>"
-
-[playVideosDE]

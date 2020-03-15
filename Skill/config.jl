@@ -56,12 +56,6 @@ const INI_WAIT = "boot_wait"
 #   * if the siteId matches, if site is  defined in config.ini
 #     (such as: "switch TV in room abc").
 #
-# Language-dependent settings:
-#
-if LANG == "de"
-    Snips.registerIntentAction("ADoSnipsOnOffDE", switchOnOffActions)
-    Snips.registerIntentAction("playVideoDE", playVideoAction)
-    Snips.registerIntentAction("playPicturesDE", playSlideshowAction)
-else LANG == "en"
-    Snips.registerIntentAction("ADoSnipsOnOffEN", switchOnOffActions)
-end
+Snips.registerIntentAction("ADoSnipsOnOff", switchOnOffActions)
+Snips.registerIntentAction("playVideo", playVideoAction)
+Snips.registerIntentAction("playPictures", playSlideshowAction)
