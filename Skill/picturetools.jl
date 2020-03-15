@@ -87,22 +87,22 @@ function matchSlideShows(slideShows, year, keywords)
     return matched
     end
 
-"""
-Extract the slide show keywords from the payload.
-"""
-function extractKeywords(payload)
-
-    keywords = []
-
-    # append keywords from slots "KEYWORDS", "keyword2", "size",
-    # "event", "season"
-    # if present:
-    #
-    for kw in [SLOT_KEYWORDS, SLOT_KEYWORDS2, SLOT_SIZE, SLOT_EVENT, SLOT_SEASON]
-        moreKeywords = Snips.extractSlotValue(payload, kw, multiple = true)
-        if moreKeywords != nothing
-            append!(keywords, moreKeywords)
-        end
-    end
-    return keywords
-end
+# """
+# Extract the slide show keywords from the payload.
+# """
+# function extractKeywords(payload)
+#
+#     keywords = []
+#
+#     # append keywords from slots "KEYWORDS", "keyword2", "size",
+#     # "event", "season"
+#     # if present:
+#     #
+#     for kw in [SLOT_KEYWORDS, SLOT_KEYWORDS2, SLOT_SIZE, SLOT_EVENT, SLOT_SEASON]
+#         moreKeywords = Snips.extractSlotValue(payload, kw, multiple = true)
+#         if moreKeywords != nothing
+#             append!(keywords, moreKeywords)
+#         end
+#     end
+#     return keywords
+# end
