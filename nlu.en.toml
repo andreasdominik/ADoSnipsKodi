@@ -1,0 +1,83 @@
+# Intent definition for Calendar skill
+#
+#  (c) A. Dominik, 2020
+#
+skill = "ADoSnipsKodi"
+developer = "andreasdominik"
+
+
+[inventory]
+intents = ["playPictures", "playVideo"]
+slots = ["movieName",
+         "year", "keyword", "keyword2", "size", "photos", "event", "season"]
+
+
+# define slots:
+# Types: "Any", "ListOfValues", "Time", "Duration", "Currency", "Number", "Ordinal"
+#
+[year]
+slot_type = "Time"
+
+# keywords for slide shows:
+#
+[keyword]
+slot_type = "Any"
+
+[keyword2]
+slot_type = "Any"
+allow_empty = false
+
+[event]
+slot_type = "ListOfValues"
+
+        [event.synonyms]
+        "holydays" = ["holydays", "journey", "tour", "trip", "vacation"]
+        "party" = ["party", "celebration", "anniverary", "birthday party"]
+
+[season]
+slot_type = "ListOfValues"
+
+        [season.synonyms]
+        "Winter" = ["winter", "skiing"]
+        "Sommer" = ["sommer", "sommer holydays"]
+
+[size]
+slot_type = "ListOfValues"
+allow_empty = true
+
+        [size.synonyms]
+        "kurz" = ["short version", "small", "brief", "selection", "summary"]
+        "lang" = ["long", "complete", "big", "long version", "all""]
+
+
+# slot photos is not parsed by the skill; only defined to
+# match the list of values:
+#
+[photos]
+slot_type = "ListOfValues"
+
+        [photos.synonyms]
+        "photos" = ["photos", "slides", "pictures",
+                    "holyday pictures", "slide show"]
+
+[movieName]
+slot_type = "Any"
+
+        [movieName.synonyms]
+        "mash" = ["MASH", "M A S H", "mash 4077"]
+        "Doctor Who 2005" = ["Doctor Who 2005", "Doctor Who", "The Doktor"]
+
+# define phrases for intent recognition:
+# exact, regex, part
+#
+[playVideo]
+movie_a = "partial: <<please|>> <<play|show>> <<the next|an|a>> <<episode>> <<of|>> <<movieName>> <<please|>>"
+
+[playPictures]
+pictures_a = "partial: <<please|>> <<play|show>> <<the|>> <<size>> <<>> <<of the|>> <<photos>> <<of>> <<event>> <<in|in the year|from>> <<year>>"
+pictures_b = "partial: <<please|>> <<play|show>> <<the|>> <<size>> <<>> <<of the|>> <<photos>> <<of>> <<keyword>> <<keyword2>> <<event>>"
+pictures_c = "partial: <<please|>> <<play|show>> <<the|>> <<size>> <<photos>> <<of>> <<keyword>> <<keyword2>> <<event>>"
+pictures_d = "partial: <<please|>> <<play|show>> <<the|>> <<size>> <<photos>> <<of>> <<event>>"
+pictures_e = "partial: <<please|>> <<play|show>> <<the|>> <<size>> <<photos>> <<of>> <<event>> <<in|at>> <<keyword>> <<keyword2>>"
+pictures_f = "partial: <<please|>> <<play|show>> <<the|>> <<size>> <<photos>> <<of>> <<event>> <<in|at>> <<keyword>> <<keyword2>> <<in|in the year|from>> <<year>>"
+pictures_f = "partial: <<please|>> <<play|show>> <<the|>> <<size>> <<photos>> <<of|from>> <<season>> <<year>>"
