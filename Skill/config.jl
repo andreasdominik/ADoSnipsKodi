@@ -5,8 +5,7 @@
 #    desired language as defined in languages.jl:
 #
 
-lang = Snips.getConfig(:language)
-const LANG = (lang != nothing) ? lang : "de"
+const LANG = Snips.getLanguage()
 
 # DO NOT CHANGE THE FOLLOWING 3 LINES UNLESS YOU KNOW
 # WHAT YOU ARE DOING!
