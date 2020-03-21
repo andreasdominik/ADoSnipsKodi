@@ -35,7 +35,7 @@ Snips.addText("de", :be_precise, "Bitte präzisiere Deine Frage!")
 
 
 
-Snips.addText("en", :switchon, "I have to power on the TV. Please be patient; this will takle some time.")
+Snips.addText("en", :switchon, "I have to power on the TV. Please be patient; this will take some time.")
 Snips.addText("en", :switchoff, "T power off the TV and Kodi.")
 Snips.addText("en", :ok, "OK.")
 Snips.addText("en", :diy, "I open Kodi; please select in the menu what you want to see.")
