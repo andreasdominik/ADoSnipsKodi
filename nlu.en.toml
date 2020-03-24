@@ -38,16 +38,16 @@ slot_type = "ListOfValues"
 slot_type = "ListOfValues"
 
         [season.synonyms]
-        "Winter" = ["winter", "skiing"]
-        "Sommer" = ["sommer", "sommer holydays"]
+        "winter" = ["winter", "skiing"]
+        "sommer" = ["sommer", "sommer holydays"]
 
 [size]
 slot_type = "ListOfValues"
 allow_empty = true
 
         [size.synonyms]
-        "kurz" = ["short version", "small", "brief", "selection", "summary"]
-        "lang" = ["long", "complete", "big", "long version", "all""]
+        "brief" = ["short version", "small", "brief", "selection", "summary"]
+        "long" = ["long", "complete", "big", "long version", "all"]
 
 
 # slot photos is not parsed by the skill; only defined to
@@ -66,6 +66,7 @@ slot_type = "Any"
         [movieName.synonyms]
         "mash" = ["MASH", "M A S H", "mash 4077"]
         "Doctor Who 2005" = ["Doctor Who 2005", "Doctor Who", "The Doktor"]
+        "Doctor Who" = ["Doctor Who Classics"]
 
 # define phrases for intent recognition:
 # exact, regex, part
