@@ -25,6 +25,11 @@ case "$CMD" in
   exit)
     cp "${TEMPLATES}/exit.json" $JSON
     ;;
+  KodiSendQuit)
+    kodi-send --host=$IP --port=$PORT --action="Quit"
+    sleep 1
+    exit
+    ;;
   launch)
     nohup ${DIR}/runKodi.sh &
     exit
