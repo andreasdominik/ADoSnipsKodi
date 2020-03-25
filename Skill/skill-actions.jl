@@ -127,7 +127,8 @@ function playVideoAction(topic, payload)
         #
         stopListen()
         Snips.publishEndSession(
-            """$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])              $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der $(Snips.langText(:season)) $(matchedVideo[:season]). $(Snips.langText(:title_is)):  $(matchedVideo[:title])""") kodiPlayEpisode(matchedVideo)
+            """$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])              $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der $(Snips.langText(:season)) $(matchedVideo[:season]). $(Snips.langText(:title_is)):  $(matchedVideo[:title])""")
+             kodiPlayEpisode(matchedVideo)
         return false
     end
 
