@@ -118,7 +118,7 @@ function playVideoAction(topic, payload)
             numVideos = length(episodes)
             numUnseen = countUnseen(episodes)
 
-            Snips.publishSay("$(Snips.langText(:found)): $numVideos $(Snips.langText(:episodes)). $(Snips.langText(:new)): $numUnseen.")
+            Snips.publishSay("$(Snips.langText(:found)): $numVideos $(Snips.langText(:episodes))  $(Snips.langText(:new)) $numUnseen")
         end
     end
 
@@ -127,7 +127,7 @@ function playVideoAction(topic, payload)
         #
         stopListen()
         Snips.publishEndSession(
-            """$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])              $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der $(Snips.langText(:season)) $(matchedVideo[:season]). $(Snips.langText(:title_is)):  $(matchedVideo[:title])""")
+            "$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])              $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der $(Snips.langText(:season)) $(matchedVideo[:season])   $(Snips.langText(:title_is))   $(matchedVideo[:title])")
              kodiPlayEpisode(matchedVideo)
         return false
     end
@@ -137,7 +137,7 @@ function playVideoAction(topic, payload)
     #
     if Snips.isConfigValid(INI_SHARE)
 
-        Snips.publishSay("""$(Snips.langText(:i_search_rec)) $videoName.""", wait = true)
+        Snips.publishSay("$(Snips.langText(:i_search_rec)) $videoName", wait = true)
 
         recs = kodiGetRrecordings(Snips.getConfig(INI_SHARE))
         episodes = extractOTR(videoName, recs)
@@ -149,14 +149,14 @@ function playVideoAction(topic, payload)
             # numUnseen = countUnseen(episodes)
 
             Snips.publishSay(
-                 """$(Snips.langText(:found)): $numVideos $(Snips.langText(:recordings)).""")
+                 "$(Snips.langText(:found)): $numVideos $(Snips.langText(:recordings))")
                  # $(Snips.langText(:new)): $numUnseen.""")
         end
 
         if matchedVideo != nothing
             stopListen()
             Snips.publishEndSession(
-                """$(Snips.langText(:i_play_new_otr)) $(matchedVideo[:title])""")
+                "$(Snips.langText(:i_play_new_otr)) $(matchedVideo[:title])")
             kodiPlayFile(matchedVideo)
             return false
         end
@@ -171,14 +171,14 @@ function playVideoAction(topic, payload)
     numVideos = length(matchedVideos)
     if numVideos > 1
         Snips.publishEndSession(
-            """$(Snips.langText(:found)) $(numVideos). $(Snips.langText(:diy))""")
+            "$(Snips.langText(:found)) $(numVideos) $(Snips.langText(:diy))")
         return true
 
     elseif numVideos == 1
         matchedVideo = matchedVideos[1]
         stopListen()
         Snips.publishEndSession(
-            """$(Snips.langText(:i_play)) $(matchedVideo[:title])""")
+            "$(Snips.langText(:i_play)) $(matchedVideo[:title])")
         kodiPlayMovie(matchedVideo)
         return false
     end
@@ -280,7 +280,7 @@ function playSlideshowAction(topic, payload)
     # if many matches, just open Pictures in Kodi:
     #
     else
-        Snips.publishEndSession("""$(length(matched)) $(Snips.langText(:fits)). $(Snips.langText(:diy))""")
+        Snips.publishEndSession("$(length(matched)) $(Snips.langText(:fits))  $(Snips.langText(:diy))")
         kodiWindowPictures(Snips.getConfig(INI_PICTURES))
         return false
     end
