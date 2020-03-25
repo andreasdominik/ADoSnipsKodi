@@ -64,7 +64,7 @@ slot_type = "ListOfValues"
 slot_type = "Any"
 
         [movieName.synonyms]
-        "mash" = ["MASH", "M A S H", "mash 4077"]
+        "M.A.S.H" = ["MASH", "M A S H", "mash 4077"]
         "Doctor Who 2005" = ["Doctor Who 2005", "Doctor Who", "Doktor Who"]
         "Doctor Who" = ["Doctor Who Classics"]
 
