@@ -125,10 +125,10 @@ function playVideoAction(topic, payload)
     if matchedVideo != nothing
         # disable intents:
         #
-        stopListen()
         Snips.publishEndSession(
             "$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])              $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der $(Snips.langText(:season)) $(matchedVideo[:season])   $(Snips.langText(:title_is))   $(matchedVideo[:title])")
              kodiPlayEpisode(matchedVideo)
+        stopListen()
         return false
     end
 
@@ -154,9 +154,9 @@ function playVideoAction(topic, payload)
         end
 
         if matchedVideo != nothing
-            stopListen()
             Snips.publishEndSession(
                 "$(Snips.langText(:i_play_new_otr)) $(matchedVideo[:title])")
+            stopListen()
             kodiPlayFile(matchedVideo)
             return false
         end
@@ -176,9 +176,9 @@ function playVideoAction(topic, payload)
 
     elseif numVideos == 1
         matchedVideo = matchedVideos[1]
-        stopListen()
         Snips.publishEndSession(
             "$(Snips.langText(:i_play)) $(matchedVideo[:title])")
+        stopListen()
         kodiPlayMovie(matchedVideo)
         return false
     end
