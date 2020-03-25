@@ -127,11 +127,7 @@ function playVideoAction(topic, payload)
         #
         stopListen()
         Snips.publishEndSession(
-            """$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])
-               $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der
-               $(Snips.langText(:season)) $(matchedVideo[:season]).
-               $(Snips.langText(:title_is)) $(matchedVideo[:title])""")
-        kodiPlayEpisode(matchedVideo)
+            """$(Snips.langText(:i_play)) $(matchedVideo[:showtitle])              $(Snips.langText(:episode)) $(matchedVideo[:episode]) aus der $(Snips.langText(:season)) $(matchedVideo[:season]). $(Snips.langText(:title_is)):  $(matchedVideo[:title])""") kodiPlayEpisode(matchedVideo)
         return false
     end
 
@@ -174,8 +170,7 @@ function playVideoAction(topic, payload)
     numVideos = length(matchedVideos)
     if numVideos > 1
         Snips.publishEndSession(
-            """$(Snips.langText(:found)) $(numVideos).
-            $(Snips.langText(:diy))""")
+            """$(Snips.langText(:found)) $(numVideos). $(Snips.langText(:diy))""")
         return true
 
     elseif numVideos == 1
@@ -267,16 +262,14 @@ function playSlideshowAction(topic, payload)
     #
     elseif length(matched) == 1
         show = matched[1]
-        Snips.publishEndSession("""Ich öffne die Diashow von $(show[:year])
-                $(join(show[:keywords], " "))""")
+        Snips.publishEndSession("""Ich öffne die Diashow von $(show[:year]) $(join(show[:keywords], " "))""")
         kodiPlayPictures(show)
         return false
 
     # read up to 3 matches:
     #
     elseif length(matched) < 4
-        Snips.publishSay("""$(length(matched)) $(Snips.langText(:slideshows))
-                          $(Snips.langText(:fits)):""")
+        Snips.publishSay("""$(length(matched)) $(Snips.langText(:slideshows)) $(Snips.langText(:fits)):""")
         for m in matched
             Snips.publishSay("$(m[:year]) $(join(m[:keywords], " "))")
         end
@@ -286,8 +279,7 @@ function playSlideshowAction(topic, payload)
     # if many matches, just open Pictures in Kodi:
     #
     else
-        Snips.publishEndSession("""$(length(matched)) $(Snips.langText(:fits)).
-                $(Snips.langText(:diy))""")
+        Snips.publishEndSession("""$(length(matched)) $(Snips.langText(:fits)). $(Snips.langText(:diy))""")
         kodiWindowPictures(Snips.getConfig(INI_PICTURES))
         return false
     end
