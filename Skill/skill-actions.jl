@@ -34,11 +34,7 @@ function switchOnOffActions(topic, payload)
     Snips.printDebug(">>> $onOrOff, $device")
     # check ini vals:
     #
-    if !Snips.isConfigValid(INI_IP) ||
-        !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
-        !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
-        !Snips.isConfigValid(INI_TV)
-
+    if !checkConfig()
         Snips.publishEndSession(:noip)
         return true
     end
@@ -76,12 +72,7 @@ function playVideoAction(topic, payload)
 
     # check ini vals:
     #
-    if !Snips.isConfigValid(INI_IP) ||
-        !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
-        !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
-        !Snips.isConfigValid(INI_ON_MODE) ||
-        !Snips.isConfigValid(INI_TV)
-
+    if !checkConfig()
         Snips.publishEndSession(:noip)
         return true
     end
@@ -210,13 +201,7 @@ function playSlideshowAction(topic, payload)
 
     # check ini vals:
     #
-    if !Snips.isConfigValid(INI_IP) ||
-       !Snips.isConfigValid(INI_PORT, regex = r"[0-9]+") ||
-       !Snips.isConfigValid(INI_GPIO, regex = r"[0-9]+") ||
-       !Snips.isConfigValid(INI_TV) ||
-        !Snips.isConfigValid(INI_ON_MODE) ||
-       !Snips.isConfigValid(INI_PICTURES)
-
+    id !checkConfig()
        Snips.publishEndSession(:noip)
        return true
     end
@@ -287,4 +272,19 @@ function playSlideshowAction(topic, payload)
 
     Snips.publishEndSession("")
     return true
+end
+
+
+
+function checkConfig()
+
+    ok = true
+    for key in [INI_IP, INI_PORT, INI_GPIO,
+                INI_TV, INI_ON_MODE, INI_KODI,
+                INI_PICTURES, INI_SHARES]
+        if !Snips.isConfigValid(key)
+            ok = false
+        end
+    end
+    return ok
 end

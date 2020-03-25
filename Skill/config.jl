@@ -55,6 +55,7 @@ const INI_GPIO = "gpio"
 const INI_SHARE = "recordings"
 const INI_PICTURES = "pictures"
 const INI_WAIT = "boot_wait"
+const INI_KODI = "kodi"
 
 
 #

@@ -81,6 +81,13 @@ function kodiLaunch()
     tvSusi()
     sleep(2)
     if !kodiIsOn( mode = :tryApiCall)
+        launchCmd = Snips.getConfig(INI_KODI)
+
+        open("$MODULE_DIR/runKodi.sh", "w") do f
+            println(f, "#!/bin/bash")
+            println(f, "# temp launcher file for Kodi")
+            println(f, "$launchCmd")
+        end
         kodiCmd("launch", errorMsg = :error_kodicmd)
     end
     return true
@@ -136,7 +143,7 @@ function tvOn()
 end
 
 function tvSusi()
-    
+
     trigger = Dict(:room => Snips.getSiteId(),
                    :device => Snips.getConfig(INI_TV),
                    :commands => ["susi"],
