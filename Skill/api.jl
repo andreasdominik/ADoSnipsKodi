@@ -83,11 +83,12 @@ function kodiLaunch()
     if !kodiIsOn( mode = :tryApiCall)
         launchCmd = Snips.getConfig(INI_KODI)
 
-        open("$MODULE_DIR/runKodi.sh", "w") do f
+        open("/tmp/runKodi.sh", "w") do f
             println(f, "#!/bin/bash")
             println(f, "# temp launcher file for Kodi")
             println(f, "$launchCmd")
         end
+        chmod("/tmp/runKodi.sh", 0o755)
         kodiCmd("launch", errorMsg = :error_kodicmd)
     end
     return true

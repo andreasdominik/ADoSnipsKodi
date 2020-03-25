@@ -8,6 +8,19 @@ on_mode=local
 gpio=21
 boot_wait=3
 
+# KODI launch command:
+#   command to launch KODI; examples:
+#   run as current user on local machine:
+kodi=DISPLAY=:0 kodi
+#
+# run as different user on local machine:
+# kodi=ssh username@localhost 'DISPLAY=:0 kodi'
+#
+# run on remote machine:
+# kodi=ssh username@hostname_or_IP 'DISPLAY=:0 kodi'
+
+
+
 # local storage for media files:
 #
 recordings=/home/pi/Kodi/LocalMedia/recordings

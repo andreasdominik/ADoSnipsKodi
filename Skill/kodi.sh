@@ -31,7 +31,7 @@ case "$CMD" in
     exit
     ;;
   launch)
-    nohup ${DIR}/runKodi.sh &
+    nohup /tmp/runKodi.sh &
     exit
     ;;
   getVolume)
