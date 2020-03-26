@@ -78,9 +78,9 @@ end
 
 function kodiLaunch()
 
-    # tvSusi()
-    # sleep(2)
     if !kodiIsOn( mode = :tryApiCall)
+        tvSusi()
+        sleep(2)
         launchCmd = Snips.getConfig(INI_KODI)
         # Snips.printLog(launchCmd)
 
