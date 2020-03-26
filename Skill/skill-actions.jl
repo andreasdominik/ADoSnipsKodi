@@ -18,7 +18,7 @@ function switchOnOffActions(topic, payload)
     end
 
 
-    # ROOMs are not yet supported -> only ONE Fire  in assistent possible.
+    # ROOMs are not yet supported -> only ONE Kodi  in assistent possible.
     #
     # room = Snips.extractSlotValue(payload, SLOT_ROOM)
     # if room == nothing
@@ -283,7 +283,7 @@ function checkConfig()
     ok = true
     for key in [INI_IP, INI_PORT, INI_GPIO,
                 INI_TV, INI_ON_MODE, INI_KODI,
-                INI_PICTURES, INI_SHARES]
+                INI_PICTURES, INI_SHARE]
         if !Snips.isConfigValid(key)
             ok = false
         end

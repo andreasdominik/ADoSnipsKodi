@@ -82,6 +82,7 @@ function kodiLaunch()
     # sleep(2)
     if !kodiIsOn( mode = :tryApiCall)
         launchCmd = Snips.getConfig(INI_KODI)
+        # Snips.printLog(launchCmd)
 
         open("/tmp/runKodi.sh", "w") do f
             println(f, "#!/bin/bash")
