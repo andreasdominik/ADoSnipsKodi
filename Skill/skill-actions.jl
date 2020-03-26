@@ -213,6 +213,8 @@ function playSlideshowAction(topic, payload)
         return true
     end
 
+    
+
     # if no keywords, just open pictures:
     #
     keywords = Snips.extractMultiSlotValues(payload, [SLOT_KEYWORDS, SLOT_KEYWORDS2, SLOT_SIZE, SLOT_EVENT, SLOT_SEASON])
@@ -286,5 +288,6 @@ function checkConfig()
             ok = false
         end
     end
+
     return ok
 end

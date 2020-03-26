@@ -78,8 +78,8 @@ end
 
 function kodiLaunch()
 
-    tvSusi()
-    sleep(2)
+    # tvSusi()
+    # sleep(2)
     if !kodiIsOn( mode = :tryApiCall)
         launchCmd = Snips.getConfig(INI_KODI)
 
@@ -111,7 +111,7 @@ function kodiGPIOOff()
 function kodiExit()
 
     if kodiIsOn( mode = :tryApiCall)
-        kodiCmd("exit")
+        kodiCmd("KodiSendQuit")
     end
 
     tvOff()
