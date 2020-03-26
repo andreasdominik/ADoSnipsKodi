@@ -201,7 +201,7 @@ function playSlideshowAction(topic, payload)
 
     # check ini vals:
     #
-    id !checkConfig()
+    if !checkConfig()
        Snips.publishEndSession(:noip)
        return true
     end
@@ -213,7 +213,7 @@ function playSlideshowAction(topic, payload)
         return true
     end
 
-    
+
 
     # if no keywords, just open pictures:
     #
